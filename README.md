@@ -1,6 +1,7 @@
-# supermarket
+# max-x
 
 ## Project setup
+
 ```
 npm install
 ```

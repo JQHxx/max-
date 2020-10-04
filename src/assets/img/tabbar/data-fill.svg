@@ -1,1 +1,35 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1601288491366" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13481" width="350" height="350" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M170.666667 353.578667l314.666666 135.253333v395.306667L208.682667 761.322667A64 64 0 0 1 170.666667 702.805333v-349.226666z m682.666666-8.170667v357.397333a64 64 0 0 1-38.016 58.496L549.333333 879.402667V485.482667L853.333333 345.386667zM537.984 139.52l277.333333 123.157333c9.642667 4.266667 17.856 10.773333 24.149334 18.709334l-324.757334 150.4-334.72-143.872c6.613333-10.922667 16.533333-19.84 28.693334-25.237334l277.333333-123.157333a64 64 0 0 1 51.968 0z" p-id="13482" fill="#1296db"></path></svg>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="202" width="202" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <g stroke="null" id="svg_37">
+   <path stroke="null" id="svg_36" fill="#1296db" p-id="7379" d="m0.000004,58.516239l92.221629,36.048894l0,105.36057l-81.080006,-32.733988a18.756942,17.057837 0 0 1 -11.141623,-15.596549l0,-93.078928zm200.074044,-2.177717l0,95.256645a18.756942,17.057837 0 0 1 -11.141623,15.590863l-77.953849,31.477395l0,-104.990984l89.095473,-37.339604l0,0.005686zm-92.421704,-54.869374l81.28008,32.824963c2.826046,1.137189 5.233187,2.871402 7.077619,4.986574l-95.178974,40.085916l-98.098805,-38.346017c1.938217,-2.911204 4.845543,-5.287929 8.409362,-6.726474l81.28008,-32.824963a18.756942,17.057837 0 0 1 15.230637,0z"/>
+  </g>
+ </g>
+</svg>

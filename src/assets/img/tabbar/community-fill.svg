@@ -1,1 +1,29 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1601288741326" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="14637" width="350" height="350" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M617.216 170.666667c114.24 0 206.869333 92.608 206.869333 206.869333 0 72.533333-37.333333 136.32-93.802666 173.269333l168.746666 196.885334A64 64 0 0 1 850.432 853.333333l-101.888 0.021334c11.221333-19.413333 14.293333-42.496 8.746667-64L850.432 789.333333 634.24 537.109333l60.992-39.872a142.869333 142.869333 0 0 0-75.584-262.549333 251.264 251.264 0 0 0-55.424-57.173333A206.976 206.976 0 0 1 617.216 170.666667z m-61.162667 412.757333l140.8 164.266667A64 64 0 0 1 648.213333 853.333333H181.824a64 64 0 0 1-48.597333-105.642666l140.8-164.266667a248.384 248.384 0 0 0 141.013333 43.648c52.330667 0 100.906667-16.106667 141.013333-43.648zM415.04 170.666667c114.24 0 206.869333 92.608 206.869333 206.869333 0 114.24-92.629333 206.869333-206.869333 206.869333-114.261333 0-206.869333-92.629333-206.869333-206.869333C208.170667 263.274667 300.778667 170.666667 415.04 170.666667z" p-id="14638" fill="#1296db"></path></svg>
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" style="vector-effect: non-scaling-stroke;" stroke="null">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g stroke="null">
+  <title style="vector-effect: non-scaling-stroke;" stroke="null">background</title>
+  <rect stroke="null" fill="#fff" id="canvas_background" height="202" width="202" y="-1" x="-1"/>
+  <g style="vector-effect: non-scaling-stroke;" stroke="null" display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect stroke="null" fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g stroke="null">
+  <title style="vector-effect: non-scaling-stroke;" stroke="null">Layer 1</title>
+  <defs style="vector-effect: non-scaling-stroke;" stroke="null">
+   <style style="vector-effect: non-scaling-stroke;" stroke="null" type="text/css"/>
+  </defs>
+  <defs style="vector-effect: non-scaling-stroke;" stroke="null">
+   <style style="vector-effect: non-scaling-stroke;" stroke="null" type="text/css"/>
+  </defs>
+  <defs style="vector-effect: non-scaling-stroke;" stroke="null">
+   <style style="vector-effect: non-scaling-stroke;" stroke="null" type="text/css"/>
+  </defs>
+  <defs>
+   <style type="text/css"/>
+  </defs>
+  <g stroke="null" style="vector-effect: non-scaling-stroke;" transform="translate(-0.0000013212072644819273,-0.0000018973329360960633) scale(1.0926557779312134,1) translate(0.0000013212072644819273,0.0000018973329360960633) " id="svg_21">
+   <path stroke="null" style="vector-effect: non-scaling-stroke;" id="svg_20" fill="#1296db" p-id="3232" d="m166.581479,-0.000002l-150.157954,0c-8.915628,0 -16.423526,8.414829 -16.423526,18.407439l0,127.274293c0.469244,9.466683 7.507898,17.355585 16.423526,17.355585l33.316296,0l0,29.451903c0.469244,6.837049 7.977141,9.466683 12.200334,4.733341l30.031591,-34.185244l74.609733,0c8.915628,0 16.423526,-8.414829 16.423526,-18.407439l0,-126.222439c0,-9.99261 -7.507898,-18.407439 -16.423526,-18.407439zm-74.609733,102.555732l-47.393604,0c-3.753949,0 -7.038654,-3.681488 -7.038654,-7.888902s2.815462,-7.362976 6.56941,-7.888902l47.393604,0c3.753949,0 7.038654,3.681488 7.038654,7.888902s-2.815462,7.362976 -6.569411,7.888902zm35.19327,-36.814878l-82.586874,0c-3.753949,0 -7.038654,-3.681488 -7.038654,-7.888902s2.815462,-7.362976 6.56941,-7.888902l82.586875,0c3.753949,0 7.038654,3.681488 7.038654,7.888902s-2.815462,7.362976 -6.569411,7.888902z"/>
+  </g>
+ </g>
+</svg>

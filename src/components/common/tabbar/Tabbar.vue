@@ -13,10 +13,13 @@ export default {
 <style scoped>
   #tabbar {
     display: flex;
-    background-color:#f6f6f6;
+    background-color:white;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
+    border-top-style: solid;
+    border-width:1px;
+    border-color: #bababa;
   }
 </style>

@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Community from "../views/Community/Community"
-import Data from "../views/Data/Data"
-import User from "../views/User/User"
-import Find from "../views/Find/Find"
-
 Vue.use(VueRouter)
+
+const User = () => import("../views/user/User")
+const Data = () => import("../views/data/Data")
+const Community = () => import("../views/community/Community")
+const Find = () => import("../views/find/Find")
+const Contest = () => import("../views/contest/Contest")
 
 const routes = [
   {
     path: '/',
-    redirect: 'User',
+    redirect: '/user',
   },
   {
     path: '/user',
@@ -32,6 +33,11 @@ const routes = [
     path: '/find',
     name: 'Find',
     component: Find
+  },
+  {
+    path: '/contest',
+    name: 'Contest',
+    component: Contest
   }
 ]
 

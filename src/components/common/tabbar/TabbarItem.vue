@@ -1,5 +1,5 @@
 <template>
-  <div class="tabbar-item" @click="itemclick">
+  <div class="tabbar" @click="itemclick">
     <div v-if="isactive">
       <slot name="item-icon-fill"></slot>
     </div>
@@ -31,12 +31,12 @@ export default {
       return this.$route.path.indexOf(this.path) !== -1
     },
     activestyle () {
-      return this.isactive ? {color: "blue"} : {}
+      return this.isactive ? {color: "blue"} : {color: "#bababa"}
     }
   },
   methods: {
     itemclick () {
-      if (this.$route.path==this.path){
+      if (this.$route.path==this.path) {
         return
       }
       this.$router.push(this.path)
@@ -47,19 +47,20 @@ export default {
 </script>
 
 <style scoped>
-  .tabbar-item {
-    flex: auto;
-
-    margin-top: 0%;
-    vertical-align: middle;
-    margin-bottom: 0%;
-
+  .tabbar {
+    flex: 1;
     text-align: center;
-    text-emphasis-color: initial;
-    font-size: 200%;
+    height: 45px;
+    font-size: 12px;
+    color:white;
+    border-top-color: black;
+    border-width: 1px;
   }
 
-  .tabbar-item img {
-    width: 25%;
+  .tabbar img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin: 4px 0 2px 0;/* 图片四周边距 */
   }
 </style>
