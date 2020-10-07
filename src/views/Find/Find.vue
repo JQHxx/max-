@@ -8,8 +8,10 @@
       <NavbarSearch slot="right">
       </NavbarSearch>
     </Navbar>
+    <FindSwiper class="find-swiper" :RotationImages="RotationImages"/>
+    <FindItems class="find-items" :FindItems="FindItems"></FindItems>
   </div>
-</template>>
+</template>
 
 <script type>
   import Navbar from "../../components/common/navbar/Navbar"
@@ -17,6 +19,8 @@
   import NavbarLog from "../../components/common/navbar/NavbarLog"
   import NavbarSearch from "../../components/common/navbar/NavbarSeach"
   import {getFindMultidata} from "../../network/find"
+  import FindSwiper from "./findcomps/FindSwiper"
+  import FindItems from "./findcomps/FindItems"
 
   export default {
     name: "Find",
@@ -24,18 +28,23 @@
       Navbar,
       NavbarLogin,
       NavbarLog,
-      NavbarSearch
+      NavbarSearch,
+      FindSwiper,
+      FindItems
     },
     data() {
       return {
-        result: null
+        RotationImages: [],
+        FindItems: [],
+      }
+    },
+    methods: {
+      getFindMultidata() {
+        getFindMultidata().then(res=>{this.RotationImages = res.data.banner.list})
       }
     },
     created() {
-      getFindMultidata()
-      .then(res=>{
-        console.log(res);
-        this.result = res})
+      this.getFindMultidata()
     }
   }
 </script>
@@ -44,5 +53,12 @@
   #find {
     position: relative;
     font-size: 28px;
+  }
+
+  .find-swiper {
+    position: absolute;
+    top: 40px;
+    left: 0%;
+    right: 0%;
   }
 </style>>
