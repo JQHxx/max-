@@ -6,27 +6,27 @@
       <TabbarItem path="/user">
         <img slot="item-icon-fill" src="./assets/img/tabbar/user-fill.svg" alt="">
         <img slot="item-icon" src="./assets/img/tabbar/user.svg" alt="">
-        <div slot="item-text">我的</div>
+        <span slot="item-text">我的</span>
       </TabbarItem>
       <TabbarItem path="/data">
         <img slot="item-icon-fill" src="./assets/img/tabbar/data-fill.svg" alt="">
         <img slot="item-icon" src="./assets/img/tabbar/data.svg" alt="">
-        <div slot="item-text">数据</div>
+        <span slot="item-text">数据</span>
       </TabbarItem>
       <TabbarItem path="/contest">
         <img slot="item-icon-fill" src="./assets/img/tabbar/contest-fill.svg" alt="">
         <img slot="item-icon" src="./assets/img/tabbar/contest.svg" alt="">
-        <div slot="item-text">赛事</div>
+        <span slot="item-text">赛事</span>
       </TabbarItem>
       <TabbarItem path="/community">
         <img slot="item-icon-fill" src="./assets/img/tabbar/community-fill.svg" alt="">
         <img slot="item-icon" src="./assets/img/tabbar/community.svg" alt="">
-        <div slot="item-text">社区</div>
+        <span slot="item-text">社区</span>
       </TabbarItem>
       <TabbarItem path="/find">
         <img slot="item-icon-fill" src="./assets/img/tabbar/find-fill.svg" alt="">
         <img slot="item-icon" src="./assets/img/tabbar/find.svg" alt="">
-        <div slot="item-text">发现</div>
+        <span slot="item-text">发现</span>
       </TabbarItem>
     </Tabbar>
   </div>

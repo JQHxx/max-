@@ -28,8 +28,4 @@
 </script>
 
 <style>
-  #data {
-    position: relative;
-    font-size: 28px;
-  }
 </style>>

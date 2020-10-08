@@ -15,7 +15,7 @@
 <script>
 	export default {
     name: "Swiper",
-    
+
     props: {
       // 轮播间隔
       interval: {
@@ -217,10 +217,13 @@
 	}
 </script>
 
-<style scoped>
+<style>
   #hy-swiper {
     overflow: hidden;
     position: absolute;
+    top: 40px;
+    left: 0%;
+    right: 0%;
   }
 
   .swiper {

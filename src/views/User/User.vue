@@ -14,7 +14,7 @@
   </div>
 </template>>
 
-<script type>
+<script>
   import Navbar from "../../components/common/navbar/Navbar"
   import NavbarLogin from "../../components/common/navbar/NavbarLogin"
   import NavbarLog from "../../components/common/navbar/NavbarLog"
@@ -32,7 +32,4 @@
 </script>
 
 <style>
-  #user {
-    font-size: 28px;
-  }
 </style>>

@@ -10,7 +10,7 @@
 	}
 </script>
 
-<style scoped>
+<style>
   .swiperimages {
     width: 100%;
     flex-shrink: 0;
@@ -19,5 +19,6 @@
 
   .swiperimages img {
     width: 100%;
+    height: 230px;
   }
 </style>

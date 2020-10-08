@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   name: "NavbarLogin",
   props: {
@@ -20,10 +20,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .navbar-login img {
     width: 24px;
     height: 24px;
-    vertical-align: middle;
   }
 </style>

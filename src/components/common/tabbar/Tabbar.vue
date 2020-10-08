@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   #tabbar {
     display: flex;
     background-color:white;
@@ -19,7 +19,7 @@ export default {
     right: 0;
     bottom: 0;
     border-top-style: solid;
-    border-width:1px;
+    border-width: 1px;
     border-color: #bababa;
   }
 </style>

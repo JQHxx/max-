@@ -1,12 +1,12 @@
 <template>
-  <div class="tabbar" @click="itemclick">
+  <div class="tabbar-item" @click="itemclick">
     <div v-if="isactive">
       <slot name="item-icon-fill"></slot>
     </div>
-    <div v-else name="item-icon">
+    <div v-else>
       <slot name="item-icon"></slot>
     </div>
-    <div :style="activestyle">
+    <div :class="{item_text: isactive}">
       <slot name="item-text"></slot>
     </div>
   </div>
@@ -29,9 +29,6 @@ export default {
   computed: {
     isactive () {
       return this.$route.path.indexOf(this.path) !== -1
-    },
-    activestyle () {
-      return this.isactive ? {color: "blue"} : {color: "#bababa"}
     }
   },
   methods: {
@@ -45,18 +42,21 @@ export default {
 }
 </script>
 
-<style scoped>
-  .tabbar {
+<style>
+  .tabbar-item {
     flex: 1;
     text-align: center;
     height: 45px;
     font-size: 12px;
-    color:white;
-    border-top-color: black;
-    border-width: 1px;
+    position: relative;
+    color: #bababa;
   }
 
-  .tabbar img {
+  .item_text {
+    color: blue
+  }
+
+  .tabbar-item img {
     width: 24px;
     height: 24px;
     vertical-align: middle;

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   name: "NavbarSearch",
   props: {
@@ -21,10 +21,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .navbar-search img {
     width: 24px;
     height: 24px;
-    vertical-align: middle;
   }
 </style>

@@ -12,29 +12,30 @@
   }
 </script>
 
-<style scoped>
+<style>
   #navbar {
     display: flex;
-    height: 40px;
     background-color: black;
     position: fixed;
+    z-index: 999;
     left: 0;
     right: 0;
     top: 0;
+    height: 40px;
+    /* 父级垂直居中 */
+    align-items: center;
+    text-align: center;
   }
 
   .right {
     width: 40px;
-    text-align: center;
   }
 
   .left {
-    text-align: center;
     width: 40px;
   }
 
   .center {
-    flex: auto;
-    text-align: center;
+    flex: 1;
   }
 </style>

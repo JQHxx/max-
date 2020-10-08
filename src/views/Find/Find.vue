@@ -1,15 +1,12 @@
 <template>
   <div id="find">
     <Navbar>
-      <NavbarLogin slot="left">
-      </NavbarLogin>
-      <NavbarLog slot="center">
-      </NavbarLog>
-      <NavbarSearch slot="right">
-      </NavbarSearch>
+      <NavbarLogin slot="left"/>
+      <NavbarLog slot="center"/>
+      <NavbarSearch slot="right"/>
     </Navbar>
-    <FindSwiper class="find-swiper" :RotationImages="RotationImages"/>
-    <FindItems class="find-items" :FindItems="FindItems"></FindItems>
+    <FindSwiper :RotationImages="RotationImages"/>
+    <FindNews :FindNews="FindNews"/>
   </div>
 </template>
 
@@ -18,9 +15,9 @@
   import NavbarLogin from "../../components/common/navbar/NavbarLogin"
   import NavbarLog from "../../components/common/navbar/NavbarLog"
   import NavbarSearch from "../../components/common/navbar/NavbarSeach"
-  import {getFindMultidata} from "../../network/find"
+  import {getFindMultidata, getFindNews} from "../../network/find"
   import FindSwiper from "./findcomps/FindSwiper"
-  import FindItems from "./findcomps/FindItems"
+  import FindNews from "./findcomps/FindNews"
 
   export default {
     name: "Find",
@@ -30,35 +27,28 @@
       NavbarLog,
       NavbarSearch,
       FindSwiper,
-      FindItems
+      FindNews
     },
     data() {
       return {
         RotationImages: [],
-        FindItems: [],
+        FindNews: [],
       }
     },
     methods: {
       getFindMultidata() {
-        getFindMultidata().then(res=>{this.RotationImages = res.data.banner.list})
+        getFindMultidata().then(res=>{this.RotationImages=res.data.banner.list})
+      },
+      getFindNews() {
+        getFindNews().then(res=>{this.FindNews=res, console.log(this.FindNews)})
       }
     },
     created() {
-      this.getFindMultidata()
+      this.getFindMultidata(),
+      this.getFindNews()
     }
   }
 </script>
 
 <style>
-  #find {
-    position: relative;
-    font-size: 28px;
-  }
-
-  .find-swiper {
-    position: absolute;
-    top: 40px;
-    left: 0%;
-    right: 0%;
-  }
 </style>>

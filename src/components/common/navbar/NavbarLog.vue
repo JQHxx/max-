@@ -1,31 +1,40 @@
 <template>
-  <div>
-    <div class="navbar-log">
+  <div class="navbar-logo">
+    <div class="logo-image">
       <img src="../../../assets/img/common/log-icon.png" alt="">
-      <span class="navbar-text"> MAX-</span>
     </div>
-    
+    <div class="logo-text">
+      <span class="navbar-text">MAX-</span>
+    </div>
   </div>
 </template>
 
-<script scoped>
+<script>
 export default {
   name: "NavbarLog",
 }
 </script>
 
-<style scoped>
-  .navbar-log img {
-    width: 25px;
-    height: 20px;
-    vertical-align: middle;
+<style>
+  .navbar-logo {
+    display: flex;
+    /* 父级水平居中 */
+    justify-content: center;
   }
 
-  .navbar-text {
+  .logo-image {
+    width: 25px;
+    height: 24px;
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+
+  .logo-text {
     color: white;
     font-size: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
-    vertical-align: middle;
+    margin-right: 4px;
+    margin-left: 4px;
   }
 </style>
