@@ -180,16 +180,16 @@
           return
         }
         // 如果拖动距离>0，右拖，且绝对距离>屏宽的0.25，则索引-1
-        else if (this.distance > 0 && currentMove > this.totalWidth * this.moveRatio) {
+        else if (this.distance>0 && currentMove>this.totalWidth*this.moveRatio) {
           this.currentIndex--
         }
         // 如果拖动距离<0，左拖，且绝对距离>屏宽的0.25，则索引+1
-        else if (this.distance < 0 && currentMove > this.totalWidth * this.moveRatio) { // 向左移动超过0.5
+        else if (this.distance<0 && currentMove>this.totalWidth*this.moveRatio) { // 向左移动超过0.5
           this.currentIndex++
         }
 
         // 执行修改后的索引
-        this.scrollContent(-this.currentIndex * this.totalWidth);
+        this.scrollContent(-this.currentIndex*this.totalWidth);
 
         // 手工拖拽完毕重设0000定时器
         this.startTimer();

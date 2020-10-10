@@ -40,7 +40,7 @@
         getFindMultidata().then(res=>{this.RotationImages=res.data.banner.list})
       },
       getFindNews() {
-        getFindNews().then(res=>{this.FindNews=res, console.log(this.FindNews)})
+        getFindNews().then(res=>{this.FindNews=res})
       }
     },
     created() {

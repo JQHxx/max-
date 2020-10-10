@@ -4,9 +4,26 @@
       <slot name="image"></slot>
     </div>
     <div class="title">
-      <slot name="title"></slot>
-      <div class="date">
-        <slot name="date"></slot>
+      <div class="title-text">
+        <slot name="title"></slot>
+      </div>
+      <div class="endnote">
+        <div class="views">
+          <div class="views-icon">
+            <img src="../../../assets/img/common/browse-icon.svg" alt="">
+          </div>
+          <div class="views-text">
+            <slot name="views"></slot>
+          </div>
+        </div>
+        <div class="date">
+          <div class="date-icon">
+            <img src="../../../assets/img/common/clock-icon.svg" alt="">
+          </div>
+          <div class="date-text">
+            <slot name="date"></slot>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -28,35 +45,79 @@ export default {
     display: flex;
     border-top-style: solid;
     border-width: 2px;
-    border-color: #bababa;
+    border-color: #bfbfbf;
     height: 84px;
-    align-items: center;
   }
 
   .title {
+    width: 65%;
+    height: 100%;
+    margin: 0 15px 0 15px;
+  }
+
+  .title-text {
+    margin-top: 15px;
+    height: 40%;
+    width: 100%;
     color: black;
     font-size: 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
-    margin: 0 15px 0 15px;
-    line-height: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: center;
+  }
+
+  .endnote {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+  }
+
+  .views {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+  }
+
+  .views-text {
+    margin-left: 5px;
+    color: #bababa;
+    font-size: 10px;
+  }
+  
+  .views-icon {
+    width: 15px;
+    height: 15px;
   }
 
   .date {
-    text-align: right;
+    display: flex;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content:flex-end;
+  }
+
+  .date-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .date-text {
+    margin-left: 5px;
     font-size: 10px;
     color: #bababa;
   }
 
   .image {
+    width: 35%;
+    height: 100%;
     background-color: black;
-    top:0px;
-    left: 0px;
-    bottom: 0px;
   }
 
   .news-item img {
-    width: 140px;
-    height: 78px;
+    width: 100%;
+    height: 100%;
   }
 </style>
