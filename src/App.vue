@@ -40,6 +40,17 @@
     components: {
       Tabbar,
       TabbarItem
+    },
+    methods: {
+      // 全局常量屏幕宽度
+      getScreenWidth() {
+        let e = document.querySelector('#tabbar');
+        let w = e.offsetWidth;
+        this.$store.commit("getScreenWidth", w)
+      }
+    },
+    mounted: function () {
+      this.getScreenWidth()
     }
   }
 </script>

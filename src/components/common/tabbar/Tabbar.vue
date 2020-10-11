@@ -21,5 +21,8 @@ export default {
     border-top-style: solid;
     border-width: 1px;
     border-color: #bababa;
+    height: 45px;
+    align-items: center;
+    width: 100%;
   }
 </style>

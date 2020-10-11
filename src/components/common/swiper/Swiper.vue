@@ -1,15 +1,15 @@
 <template>
-    <div id="hy-swiper">
-      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
-        <slot></slot>
-      </div>
-      <div class="indicator">
-        <slot name="indicator" v-if="showIndicator && slideCount>1">
-          <!-- 展开slidecount个节点 -->
-          <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
-        </slot>
-      </div>
+  <div id="hy-swiper">
+    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+      <slot></slot>
     </div>
+    <div class="indicator">
+      <slot name="indicator" v-if="showIndicator && slideCount>1">
+        <!-- 展开slidecount个节点 -->
+        <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
+      </slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -30,7 +30,7 @@
       // 下一张滑动边界
       moveRatio: {
         type: Number,
-        default: 0.25
+        default: 0.2
       },
       // 显示指示器
       showIndicator: {
@@ -42,7 +42,7 @@
     data: function () {
 		  return {
         slideCount: 0, // 元素个数
-        totalWidth: 0, // swiper的宽度，屏宽
+        totalWidth: this.$store.state.screenWidth, // swiper的宽度，屏宽
         swiperStyle: {}, // swiper样式
         currentIndex: 1, // 当前的index
         scrolling: false, // 是否正在滚动
@@ -139,8 +139,6 @@
           swiperElements.appendChild(cloneFirst);
           // 提取swiper节点的样式
           this.swiperStyle = swiperElements.style;
-          // offsetWidth返回元素的布局宽度，这里就是屏宽
-          this.totalWidth = swiperElements.offsetWidth;
         }
         // 插入两张图后显示的是索引4，因此左移一张显示第一张图，这里左移没移动延迟时间
         this.setTransform(-this.totalWidth);
@@ -224,10 +222,12 @@
     top: 40px;
     left: 0%;
     right: 0%;
+    height: 220px;
   }
 
   .swiper {
     display: flex;
+    height: 100%
   }
 
   .indicator {

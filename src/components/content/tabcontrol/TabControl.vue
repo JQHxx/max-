@@ -8,9 +8,6 @@
       class="tab-control-item"
       :class="{isActive: index === currentIndex}"
       @click="itemClick(index)"
-      @touchstart="touchStart"
-      @touchmove="touchMove"
-      @touchend="touchEnd"
       :key=index>
       <span>{{item}}</span>
     </div>
@@ -32,7 +29,7 @@
       return {
         currentIndex: 0,
         moveRatio: 0.25,
-        screenWidth: 0,
+        screenWidth: this.$store.state.screenWidth,
         tabItemWidth: 0,
         tabItemStyle: {}
       }
@@ -47,7 +44,6 @@
         let tabElement = document.querySelector('.tab-control');
         /* get方法获得的时list */
         let tabItem = tabElement.getElementsByClassName('tab-item-cover')[0]
-        this.screenWidth = tabElement.offsetWidth
         this.tabItemStyle = tabItem.style;
         this.tabItemWidth = this.screenWidth/this.tabTitles.length
         this.tabItemStyle.width = `${this.tabItemWidth}px`
@@ -66,26 +62,8 @@
         /* 即风格转移都是以绝对位置计算的 */
         this.setTransform(position)
         this.currentIndex = index;
-      },
-
-      touchStart: function (e) {
-        this.startX = e.touches[0].pageX;
-      },
-
-      touchMove: function (e) {
-        this.currentX = e.touches[0].pageX;
-        this.distance = this.currentX-this.startX;
-      },
-
-      touchEnd: function (e) {
-        let currentMove = Math.abs(this.distance);
-        if (this.distance === 0) {return}
-        else if (this.distance>0 && currentMove>this.moveRatio*this.tabElementWidth && this.currentIndex>0) {
-          this.currentIndex--
-        }
-        else if (this.distance<0 && currentMove>this.moveRatio*this.tabElementWidth && this.currentIndex<this.tabTitles.length-1) {
-          this.currentIndex++
-        }
+        /* 子传父供其他组件调用 */
+        this.$emit('tabClick', index)
       }
     }
   }
@@ -119,7 +97,6 @@
     height: 100%;
     background-color: white;
     border-radius: 2px;
-    transition: transform 300ms;
     bottom: 1px;
   }
 

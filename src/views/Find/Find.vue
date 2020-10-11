@@ -40,10 +40,11 @@
         getFindMultidata().then(res=>{this.RotationImages=res.data.banner.list})
       },
       getFindNews() {
-        getFindNews().then(res=>{this.FindNews=res})
+        getFindNews().then(res=>{this.FindNews=res.results})
       }
     },
     created() {
+      /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */
       this.getFindMultidata(),
       this.getFindNews()
     }

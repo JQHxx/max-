@@ -13,7 +13,7 @@ export default {
 <style>
   .news {
     display: list-item;
-    top: 270px;
+    top: 260px;
     left: 0px;
     right: 0px;
     margin-bottom: 45px;

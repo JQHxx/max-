@@ -5,8 +5,11 @@
       <NavbarLog slot="center"/>
       <NavbarSearch slot="right"/>
     </Navbar>
-    <!-- 子传父 -->
-    <TabControl :tabTitles="['帖子', '话题']" @childClick="fatherClick"/>
+    <TabControl :tabTitles="['帖子', '话题']" @tabClick="tabClick"/>
+    <TabContent :tabIndex="tabIndex">
+      <CommunityPost/>
+      <CommunityTopic/>
+    </TabContent>
   </div>
 </template>>
 
@@ -16,12 +19,15 @@
   import NavbarLog from "../../components/common/navbar/NavbarLog"
   import NavbarSearch from "../../components/common/navbar/NavbarSeach"
   import TabControl from "../../components/content/tabcontrol/TabControl"
+  import TabContent from "../../components/content/tabcontent/TabContent"
+  import CommunityTopic from "../../views/community/communitycomps/CommunityTopic"
+  import CommunityPost from "../../views/community/communitycomps/CommunityPost"
 
   export default {
     name: "Community",
     data() {
       return {
-        currentType: 0,
+        tabIndex: 0,
       }
     },
     components: {
@@ -29,18 +35,14 @@
       NavbarLogin,
       NavbarLog,
       NavbarSearch,
-      TabControl
+      TabControl,
+      TabContent,
+      CommunityTopic,
+      CommunityPost
     },
     methods: {
-      fatherClick(index) {
-        switch (index) {
-          case 0:
-            this.currentType = 'pop'
-            break
-          case 1:
-            this.currentType = 'new'
-            break
-        }
+      tabClick(index) {
+        this.tabIndex = index
       }
     }
   }
