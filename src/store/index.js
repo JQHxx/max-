@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    screenWidth: 0,
+    screenWidth: 0
   },
   mutations: {
     getScreenWidth (state, width) {

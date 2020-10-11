@@ -5,8 +5,7 @@
       <NavbarLog slot="center"/>
       <NavbarSearch slot="right"/>
     </Navbar>
-    <TabControl :tabTitles="['帖子', '话题']" @tabClick="tabClick"/>
-    <TabContent :tabIndex="tabIndex">
+    <TabContent :tabTitles="tabTitles" :tabIndex="tabIndex" @tabClick="updateIndex">
       <CommunityPost/>
       <CommunityTopic/>
     </TabContent>
@@ -18,7 +17,6 @@
   import NavbarLogin from "../../components/common/navbar/NavbarLogin"
   import NavbarLog from "../../components/common/navbar/NavbarLog"
   import NavbarSearch from "../../components/common/navbar/NavbarSeach"
-  import TabControl from "../../components/content/tabcontrol/TabControl"
   import TabContent from "../../components/content/tabcontent/TabContent"
   import CommunityTopic from "../../views/community/communitycomps/CommunityTopic"
   import CommunityPost from "../../views/community/communitycomps/CommunityPost"
@@ -28,6 +26,7 @@
     data() {
       return {
         tabIndex: 0,
+        tabTitles: ['帖子', '话题', '多标签测试']
       }
     },
     components: {
@@ -35,13 +34,12 @@
       NavbarLogin,
       NavbarLog,
       NavbarSearch,
-      TabControl,
       TabContent,
       CommunityTopic,
       CommunityPost
     },
     methods: {
-      tabClick(index) {
+      updateIndex(index) {
         this.tabIndex = index
       }
     }

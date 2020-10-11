@@ -126,6 +126,7 @@
 		  handleDom: function () {
         // css选择器获取所有swiperimages节点
         let swiperElements = document.querySelector('#hy-swiper .swiper');
+        // get获取的是list
         let swiperimages = swiperElements.getElementsByClassName('swiperimages');
         // 获取图片张数作为索引，张数为传过来的初始值
         this.slideCount = swiperimages.length;
