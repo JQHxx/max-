@@ -5,7 +5,7 @@
       <NavbarLog slot="center"/>
       <NavbarSearch slot="right"/>
     </Navbar>
-    <TabContent :tabTitles="tabTitles" :tabIndex="tabIndex" @tabClick="updateIndex">
+    <TabContent :tabTitles="tabTitles">
       <CommunityPost/>
       <CommunityTopic/>
     </TabContent>
@@ -25,7 +25,6 @@
     name: "Community",
     data() {
       return {
-        tabIndex: 0,
         tabTitles: ['帖子', '话题', '多标签测试']
       }
     },
@@ -37,11 +36,6 @@
       TabContent,
       CommunityTopic,
       CommunityPost
-    },
-    methods: {
-      updateIndex(index) {
-        this.tabIndex = index
-      }
     }
   }
 </script>

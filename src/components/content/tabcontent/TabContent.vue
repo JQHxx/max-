@@ -1,19 +1,18 @@
 <template>
 <div class="hy-tab">
   <div class="tab-control">
-    <div class="tab-item-cover" :style="barStyle">
+    <div class="tab-item-cover">
       <div class="tabs-inv-bar"></div>
     </div>
     <div v-for="(item, index) in tabTitles"
       class="tab-control-item"
-      :class="{isActive: index === tabIndex}"
+      :class="{isActive: index === cIndex}"
       @click="itemClick(index)"
       :key=index>
       <span>{{item}}</span>
     </div>
   </div>
   <div class="tab-content"
-    :style="contentStyle"
     @touchstart="touchStart"
     @touchmove="touchMove"
     @touchend="touchEnd">
@@ -27,10 +26,14 @@ export default {
   name: "TabContent",
   data() {
     return {
-      moveRatio: 0.2,
-      tabcontentStyle: {},
-      tabbarStyle: {},
-      tabItemWidth: 0,
+      cIndex: 0,// 全局索引
+      moveRatio: 0.9,// 触发切换比例
+      moveLimit: 0,// 触发切换限制
+      tabItemWidth: 0,// 单个选项卡宽度
+      ContentcurrentPosition: 0,// 目前内容位置
+      tabCurrentPosition: 0,// 目前选项卡位置
+      tabcontentStyle: {},// 内容风格
+      tabbarStyle: {},// 选项卡导航指针风格
     }
   },
   props: {
@@ -39,29 +42,10 @@ export default {
       default() {
         return []
       }
-    },
-    tabIndex: {
-      type: Number,
-      default() {
-        return 0
-      }
     }
   },
   mounted() {
     this.init()
-  },
-  computed: {
-    contentStyle() {
-      return {
-        transform: `translate3d(${this.$store.state.screenWidth*(-this.tabIndex)}px,0px,0px)`
-      }
-    },
-    barStyle() {
-      return {
-        color: `white`,
-        transform: `translate3d(${this.tabItemWidth*this.tabIndex}px,0px,0px)`
-      }
-    }
   },
   methods: {
     init() {
@@ -71,18 +55,29 @@ export default {
       this.tabbarStyle = tabElement.style;
       this.tabItemWidth = this.$store.state.screenWidth/this.tabTitles.length;
       this.tabbarStyle.width = `${this.tabItemWidth}px`
+      this.moveLimit = this.moveRatio*this.$store.state.screenWidth
     },
 
     itemClick(index) {
-      if (this.tabIndex === index) {return}
+      if (this.cIndex === index) {return}
       /* 子传父供其他组件调用 */
-      this.$emit('tabClick', index)
+      this.cIndex = index
+      this.contentCurrentPosition = -this.cIndex*this.$store.state.screenWidth
+      this.tabCurrentPosition = this.cIndex*this.tabItemWidth
+      this.SetTransform(0)
     },
 
-    setTransform(position) {
-      this.tabcontentStyle.transform = `translate3d(${position}px, 0, 0)`;
-      this.tabcontentStyle['-webkit-transform'] = `translate3d(${position}px), 0, 0`;
-      this.tabcontentStyle['-ms-transform'] = `translate3d(${position}px), 0, 0`;
+    SetTransform(distance) {
+      let contentPostion = this.contentCurrentPosition+distance
+      this.tabcontentStyle.transform = `translate3d(${contentPostion}px, 0, 0)`;
+      this.tabcontentStyle['-webkit-transform'] = `translate3d(${contentPostion}px), 0, 0`;
+      this.tabcontentStyle['-ms-transform'] = `translate3d(${contentPostion}px), 0, 0`;
+
+      let tabPostion = this.tabCurrentPosition+(-distance/this.$store.state.screenWidth*this.tabItemWidth)
+      this.tabbarStyle.transform = `translate3d(${tabPostion}px, 0, 0)`;
+      this.tabbarStyle['-webkit-transform'] = `translate3d(${tabPostion}px), 0, 0`;
+      this.tabbarStyle['-ms-transform'] = `translate3d(${tabPostion}px), 0, 0`;
+      //console.log(contentPostion, tabPostion,distance,this.cIndex)
     },
 
     touchStart(e) {
@@ -92,20 +87,18 @@ export default {
     touchMove(e) {
       this.currentX = e.touches[0].pageX;
       this.distance = this.currentX-this.startX;
-      if (this.tabIndex>0 && this.distance>0){this.setTransform(this.distance)}
-      if (this.tabIndex<this.tabTitles.length-1 && this.distance <0){this.setTransform(this.distance)}
+      this.SetTransform(this.distance)
     },
 
     touchEnd(e) {
       let currentMove = Math.abs(this.distance);
-      if (this.distance === 0) {return}
-      else if (this.distance>0 && currentMove>this.moveRatio*this.$store.state.screenWidth && this.cpntabIndex>0) {
-        this.$emit("tabTouch", this.cpntabIndex-1)
-      }
-      else if (this.distance<0 && currentMove>this.moveRatio*this.$store.state.screenWidth && this.cpntabIndex<this.tabTitles.length-1) {
-        this.$emit("tabTouch", this.cpntabIndex+1)
-      }
-      console.log(this.distance,this.tabTitles,this.cpntabIndex)
+      if (this.distance == 0) {return}
+      if (this.distance>0 && this.cIndex>0 && currentMove>this.moveLimit) {
+        this.cIndex--}
+      else if (this.distance<0 && this.cIndex<(this.tabTitles.length-1) && currentMove>this.moveLimit) {
+        this.cIndex++}
+      // 执行切换，如果没超过划动限制那么索引不变图像归位
+      this.SetTransform(0)
     }
   }
 }

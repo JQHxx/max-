@@ -172,7 +172,6 @@
 
       /* 拖拽松手事件 */
       touchEnd: function (e) {
-        // 获取移动的绝对值距离
         let currentMove = Math.abs(this.distance);
         // 如果只是点了一下，无操作
         if (this.distance === 0) {
