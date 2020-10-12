@@ -51,9 +51,9 @@ export default {
   },
   methods: {
     init() {
-      let tabContent = document.querySelector('#app #community .hy-tab .tab-content');
+      let tabContent = document.querySelector('.hy-tab .tab-content');
       this.tabcontentStyle = tabContent.style;
-      let tabElement = document.querySelector('#app #community .tab-control .tab-item-cover');
+      let tabElement = document.querySelector('.hy-tab .tab-control .tab-item-cover');
       this.tabbarStyle = tabElement.style;
       this.tabItemWidth = this.$store.state.screenWidth/this.tabTitles.length;
       this.tabbarStyle.width = `${this.tabItemWidth}px`

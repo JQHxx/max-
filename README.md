@@ -1,4 +1,4 @@
-# max-x
+# max-
 
 ## Project setup
 
