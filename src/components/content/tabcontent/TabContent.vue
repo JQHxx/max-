@@ -27,13 +27,15 @@ export default {
   data() {
     return {
       cIndex: 0,// 全局索引
-      moveRatio: 0.9,// 触发切换比例
-      moveLimit: 0,// 触发切换限制
+      switchRatio: 0.2,// 触发切换比例
+      switchLimit: 0,// 触发切换临界值
       tabItemWidth: 0,// 单个选项卡宽度
       ContentcurrentPosition: 0,// 目前内容位置
       tabCurrentPosition: 0,// 目前选项卡位置
       tabcontentStyle: {},// 内容风格
       tabbarStyle: {},// 选项卡导航指针风格
+      moveRatio: 0.2,// 边界滑动限制比例
+      moveLimit: 0,// 边界滑动临界值
     }
   },
   props: {
@@ -55,15 +57,20 @@ export default {
       this.tabbarStyle = tabElement.style;
       this.tabItemWidth = this.$store.state.screenWidth/this.tabTitles.length;
       this.tabbarStyle.width = `${this.tabItemWidth}px`
-      this.moveLimit = this.moveRatio*this.$store.state.screenWidth
+      this.switchLimit = this.switchRatio*this.$store.state.screenWidth
+      this.moveLimit = this.moveRatio*this.tabItemWidth
+    },
+
+    computePostion() {
+      this.contentCurrentPosition = -this.cIndex*this.$store.state.screenWidth
+      this.tabCurrentPosition = this.cIndex*this.tabItemWidth
     },
 
     itemClick(index) {
       if (this.cIndex === index) {return}
       /* 子传父供其他组件调用 */
       this.cIndex = index
-      this.contentCurrentPosition = -this.cIndex*this.$store.state.screenWidth
-      this.tabCurrentPosition = this.cIndex*this.tabItemWidth
+      this.computePostion()
       this.SetTransform(0)
     },
 
@@ -77,7 +84,6 @@ export default {
       this.tabbarStyle.transform = `translate3d(${tabPostion}px, 0, 0)`;
       this.tabbarStyle['-webkit-transform'] = `translate3d(${tabPostion}px), 0, 0`;
       this.tabbarStyle['-ms-transform'] = `translate3d(${tabPostion}px), 0, 0`;
-      //console.log(contentPostion, tabPostion,distance,this.cIndex)
     },
 
     touchStart(e) {
@@ -87,17 +93,25 @@ export default {
     touchMove(e) {
       this.currentX = e.touches[0].pageX;
       this.distance = this.currentX-this.startX;
-      this.SetTransform(this.distance)
+      let l = this.distance
+      if (this.cIndex === 0 && this.distance>0) {
+        this.distance>this.moveLimit ? l=this.moveLimit : l=this.distance
+      }
+      else if (this.cIndex === this.tabTitles.length-1 && this.distance<0) {
+        this.distance<-this.moveLimit ? l=-this.moveLimit : l=this.distance
+      }
+      this.SetTransform(l)
     },
 
     touchEnd(e) {
       let currentMove = Math.abs(this.distance);
       if (this.distance == 0) {return}
-      if (this.distance>0 && this.cIndex>0 && currentMove>this.moveLimit) {
+      if (this.distance>0 && this.cIndex>0 && currentMove>this.switchLimit) {
         this.cIndex--}
-      else if (this.distance<0 && this.cIndex<(this.tabTitles.length-1) && currentMove>this.moveLimit) {
+      else if (this.distance<0 && this.cIndex<(this.tabTitles.length-1) && currentMove>this.switchLimit) {
         this.cIndex++}
       // 执行切换，如果没超过划动限制那么索引不变图像归位
+      this.computePostion()
       this.SetTransform(0)
     }
   }
