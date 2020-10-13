@@ -1,6 +1,6 @@
 <template>
-  <div id="hy-swiper">
-    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+  <div id="swiper">
+    <div class="swiper-main" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
       <slot></slot>
     </div>
     <div class="indicator">
@@ -125,7 +125,7 @@
       /* 操作DOM, 在DOM前后添加Slide */
 		  handleDom: function () {
         // css选择器获取所有swiperimages节点
-        let swiperElements = document.querySelector('#hy-swiper .swiper');
+        let swiperElements = document.querySelector('#swiper .swiper-main');
         // get获取的是list
         let swiperimages = swiperElements.getElementsByClassName('swiperimages');
         // 获取图片张数作为索引，张数为传过来的初始值
@@ -216,16 +216,14 @@
 </script>
 
 <style>
-  #hy-swiper {
+  #swiper {
     overflow: hidden;
     position: absolute;
-    top: 40px;
-    left: 0%;
-    right: 0%;
-    height: 220px;
+    height: 100%;
+    width: 100%;
   }
 
-  .swiper {
+  .swiper-main {
     display: flex;
     height: 100%
   }

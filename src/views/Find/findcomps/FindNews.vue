@@ -1,4 +1,5 @@
 <template>
+<div class="find-news">
   <News>
     <NewsItems v-for="(item, index) in FindNews" :key=index>
       <img slot="image" :src="item.cover_url" alt="">
@@ -7,11 +8,12 @@
       <div slot="date">{{item.released_timestamp | timestampToTime}}</div>
     </NewsItems>
   </News>
+</div>
 </template>
 
 <script>
-  import NewsItems from "../../../components/common/news/NewsItems"
-  import News from "../../../components/common/news/News"
+  import NewsItems from "../../../components/content/news/NewsItems"
+  import News from "../../../components/content/news/News"
 
   export default {
     name: "FindNews",
@@ -59,4 +61,11 @@
 </script>
 
 <style>
+.find-news {
+  position: absolute;
+  top: 250px;
+  left: 0px;
+  right: 0px;
+  display: list-item;
+}
 </style>

@@ -1,4 +1,5 @@
 <template>
+<div class="find-swiper">
   <Swiper>
     <!-- 若干swiperitem，不加key引警告  -->
     <SwiperItem v-for="(item, index) in RotationImages" :key=index>
@@ -7,6 +8,7 @@
       </a>
     </SwiperItem>
   </Swiper>
+</div>
 </template>
 
 <script>
@@ -31,4 +33,11 @@
 </script>
 
 <style>
+.find-swiper {
+  position: absolute;
+  height: 250px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
 </style>

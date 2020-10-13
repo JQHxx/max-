@@ -11,12 +11,10 @@ export default {
 </script>
 
 <style>
-  .news {
-    display: list-item;
-    top: 260px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 45px;
-    position: absolute;
-  }
+.news {
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  display: list-item;
+}
 </style>

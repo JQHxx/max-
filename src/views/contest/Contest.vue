@@ -1,16 +1,98 @@
 <template>
-  <div class="page">
-    <h2>赛事</h2>
+  <div class="page" ref="one">
+    <div class="content">
+      <h2>赛事</h2>
+      <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    </div>
   </div>
 </template>>
 
-<script type>
+<script>
+  import BScroll from 'better-scroll'
   export default {
     name: "Data",
-    components: {
+    components: {},
+    mounted() {
+      this.init()
+    },
+    methods: {
+      init() {
+        this.bscroll = new BScroll(this.$refs.one, {
+          click:true,
+          probeType: 3,
+        })
+      }
     }
   }
 </script>
 
 <style>
+.page {
+  position:absolute;
+  height: 400px;
+  background-color: red;
+  width: 100%;
+}
+.content {
+  position: absolute;
+}
 </style>
