@@ -50,6 +50,9 @@ export default {
     pullingUpHandler() {
       // 发送上拉指令，触发父组件事件
       this.$emit('pullingUps')
+    },
+
+    finishPullUpHandler() {
       this.bscroll.finishPullUp(),
       this.bscroll.refresh()
     },

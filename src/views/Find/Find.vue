@@ -61,15 +61,19 @@ export default {
       .then(res=>{this.RotationImages=res.data.banner.list})
     },
 
-    getFindNews() {
+    async getFindNews() {
       const page = this.FindNews.page+1
-      getFindNews(page)
+      await getFindNews(page)
       .then(res=>{
         this.FindNews.list.push(...res.results)
         this.FindNews.page += 1
         console.log(page)
       })
-      .catch(err=>{console.log(err)})
+      .catch(err=>{
+        console.log(err)
+      })
+      // 异步操作等待getFindNews结束后再关闭上拉，否则一次上拉过程finish过早，会频繁上拉调用getfindnews
+      this.$refs.scroll.finishPullUpHandler()
     },
   }
 }
