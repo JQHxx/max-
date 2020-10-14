@@ -8,7 +8,9 @@
     </Navbar>
   </div>
   <div class="find-content">
-    <Scroll>
+    <Scroll ref="scroll"
+            :probeType="3" :pullUpLoad="true"
+            @pullingUps="getFindNews">
       <FindSwiper :RotationImages="RotationImages"/>
       <FindNews :FindNews="FindNews.list"/>
     </Scroll>
@@ -37,6 +39,11 @@ export default {
     FindNews,
     Scroll
   },
+  data() {
+    return {
+      isPullUpLoad: false
+    }
+  },
   created() {
     /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */
     this.getFindMultidata(),
@@ -55,11 +62,15 @@ export default {
     },
 
     getFindNews() {
-      getFindNews()
+      const page = this.FindNews.page+1
+      getFindNews(page)
       .then(res=>{
         this.FindNews.list.push(...res.results)
+        this.FindNews.page += 1
+        console.log(page)
       })
-    }
+      .catch(err=>{console.log(err)})
+    },
   }
 }
 </script>

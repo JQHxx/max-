@@ -6,11 +6,11 @@ export function getFindMultidata() {
   })
 }
 
-export function getFindNews() {
+export function getFindNews(page) {
   return findItemsRequest({
     url: '/find/news',
     params: {
-      page: 1
+      page: page
     }
   })
 }

@@ -53,23 +53,22 @@ export default {
   .title {
     width: 65%;
     height: 100%;
-    margin: 0 15px 0 15px;
+    padding: 0 15px 0 15px;
   }
 
   .title-text {
-    margin-top: 15px;
-    height: 40%;
+    padding-top: 10px;
     width: 100%;
+    height: 70%;
     color: black;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    align-items: center;
   }
 
   .endnote {
+    bottom: 5%;
     width: 100%;
-    height: 30%;
     display: flex;
     align-items: center;
   }
@@ -106,7 +105,7 @@ export default {
   }
 
   .date-text {
-    margin-left: 5px;
+    padding-left: 5px;
     font-size: 10px;
     color: #bababa;
   }

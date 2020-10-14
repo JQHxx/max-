@@ -11,6 +11,9 @@
 <script>
 // 1.导入better-scroll
 import BScroll from '@better-scroll/core'
+import Pullup from '@better-scroll/pull-up'
+
+BScroll.use(Pullup)
 
 export default {
   name: "Scroll",
@@ -22,7 +25,12 @@ export default {
       pullUpLoad: {
         type: Boolean,
         default: false
-      }
+      },
+  },
+  data() {
+    return {
+      bscroll: null,
+    }
   },
   mounted() {
     setTimeout(this.initBscroll, 200)
@@ -35,8 +43,20 @@ export default {
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad
       })
-    this.bscroll.on('pullingUp', this.$emit('pullingUp'))
-    }
+    // 注意这里不是调用的函数接口
+    this.bscroll.on('pullingUp', this.pullingUpHandler)
+    },
+
+    pullingUpHandler() {
+      // 发送上拉指令，触发父组件事件
+      this.$emit('pullingUps')
+      this.bscroll.finishPullUp(),
+      this.bscroll.refresh()
+    },
+
+    scrollTo(x, y, time=300) {
+        this.bscroll.scrollTo(x, y, time)
+    },
   }
 }
 </script>
