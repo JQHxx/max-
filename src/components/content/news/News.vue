@@ -11,10 +11,4 @@ export default {
 </script>
 
 <style>
-.news {
-  position: absolute;
-  width: 100%;
-  top: 0px;
-  display: list-item;
-}
 </style>

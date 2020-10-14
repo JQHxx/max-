@@ -14,7 +14,6 @@
   .swiperimages {
     width: 100%;
     flex-shrink: 0;
-    position: relative;
   }
 
   .swiperimages img {

@@ -67,7 +67,7 @@
 </template>>
 
 <script>
-  import BScroll from 'better-scroll'
+  import BScroll from '@better-scroll/core'
   export default {
     name: "Data",
     components: {},
@@ -87,12 +87,8 @@
 
 <style>
 .page {
-  position:absolute;
   height: 400px;
   background-color: red;
   width: 100%;
-}
-.content {
-  position: absolute;
 }
 </style>

@@ -2,43 +2,49 @@
 <!-- ref位于dom上通过this.$refs.scroll获取的是节点，位于组件模板标签上获取的是vue实例，
 可以通过this.$refs.scroll.message获取数据 -->
 <div class="wrapper" ref="scroll">
-  <div class="content">
+  <div class="scroll">
     <slot></slot>
   </div>
 </div>
 </template>
 
 <script>
+// 1.导入better-scroll
 import BScroll from '@better-scroll/core'
 
 export default {
   name: "Scroll",
+  props: {
+      probeType: {
+        type: Number,
+        default: 0
+      },
+      pullUpLoad: {
+        type: Boolean,
+        default: false
+      }
+  },
   mounted() {
-    this.initBscroll()
+    setTimeout(this.initBscroll, 200)
   },
   methods: {
+    // 2.创建bs实例，属性由父传子提供
     initBscroll() {
       this.bscroll = new BScroll(this.$refs.scroll, {
         click: true,
-        probeType: 3
+        probeType: this.probeType,
+        pullUpLoad: this.pullUpLoad
       })
+    this.bscroll.on('pullingUp', this.$emit('pullingUp'))
     }
   }
 }
 </script>
 
 <style>
-  .wrapper {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  }
-  .content {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 800px;
-  }
+/* 1.content的高度一定要大于ref的wrapper，2.dom有图片需要延迟mounted挂载 */
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
 </style>

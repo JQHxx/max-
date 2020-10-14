@@ -67,15 +67,19 @@ export default {
 <style>
 .find-navbar {
   position: fixed;
-  width: 100%;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   height: 45px;
   z-index: 999;
 }
 
 .find-content {
+  position: absolute;
+  overflow: hidden;
   top: 45px;
   bottom: 45px;
-  width: 100%;
-  position: absolute;
+  right: 0px;
+  left: 0px;
 }
 </style>>

@@ -34,10 +34,7 @@
 
 <style>
 .find-swiper {
-  position: absolute;
+  width: 100%;
   height: 250px;
-  top: 0px;
-  left: 0px;
-  right: 0px;
 }
 </style>

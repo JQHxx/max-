@@ -47,6 +47,7 @@ export default {
     border-width: 2px;
     border-color: #bfbfbf;
     height: 84px;
+    width: 100%;
   }
 
   .title {

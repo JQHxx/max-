@@ -1,5 +1,3 @@
-@import "./normalize.css";
-
 /* 获取根元素，这里根元素时html */
 :root {
   --color-text: #666;
