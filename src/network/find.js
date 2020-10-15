@@ -1,8 +1,8 @@
 import {request, findItemsRequest} from "./request";
 
-export function getFindMultidata() {
-  return request({
-    url: '/home/multidata'
+export function getFindHeadlines() {
+  return findItemsRequest({
+    url: '/find/news'
   })
 }
 

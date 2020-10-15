@@ -16,11 +16,15 @@ export default {
 #navbar {
   display: flex;
   background-color: black;
-  height: 100%;
-  width: 100%;
   /* 父级垂直居中 */
   align-items: center;
   text-align: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 45px;
+  z-index: 999;
 }
 
 .right {

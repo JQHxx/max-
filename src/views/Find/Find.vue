@@ -1,18 +1,16 @@
 <template>
 <div id="find">
-  <div class="find-navbar">
-    <Navbar>
-      <NavbarLogin slot="left"/>
-      <NavbarLog slot="center"/>
-      <NavbarSearch slot="right"/>
-    </Navbar>
-  </div>
+  <Navbar>
+    <NavbarLogin slot="left"/>
+    <NavbarLog slot="center"/>
+    <NavbarSearch slot="right"/>
+  </Navbar>
   <div class="find-content">
     <Scroll ref="scroll"
             :probeType="3" :pullUpLoad="true"
             @pullingUps="getFindNews"
             @scrollPostion="isShowBackTop">
-      <FindSwiper :RotationImages="RotationImages"/>
+      <FindSwiper :RotationItems="RotationItems"/>
       <FindNews :FindNews="FindNews.list"/>
     </Scroll>
   </div>
@@ -27,7 +25,7 @@ import Navbar from "../../components/common/navbar/Navbar"
 import NavbarLogin from "../../components/common/navbar/NavbarLogin"
 import NavbarLog from "../../components/common/navbar/NavbarLog"
 import NavbarSearch from "../../components/common/navbar/NavbarSeach"
-import {getFindMultidata, getFindNews} from "../../network/find"
+import {getFindHeadlines, getFindNews} from "../../network/find"
 import FindSwiper from "./findcomps/FindSwiper"
 import FindNews from "./findcomps/FindNews"
 import Scroll from "../../components/common/scroll/Scroll"
@@ -47,25 +45,27 @@ export default {
   },
   created() {
     /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */
-    this.getFindMultidata(),
+    this.getFindHeadlines(),
     this.getFindNews()
   },
   data() {
     return {
-      RotationImages: [],
+      RotationItems: [],
       FindNews: {page: 0, list: []},
       backTopState: false
     }
   },
   computed: {},
   methods: {
-    getFindMultidata() {
-      getFindMultidata()
-      .then(res=>{this.RotationImages=res.data.banner.list})
+    getFindHeadlines() {
+      getFindHeadlines()
+      .then(res=>{this.RotationItems=res.results.slice(0,4)})
     },
 
+    // async 包装为promise对象
     async getFindNews() {
       const page = this.FindNews.page+1
+      // await等待语句完成
       await getFindNews(page)
       .then(res=>{
         this.FindNews.list.push(...res.results)
@@ -84,22 +84,12 @@ export default {
 
     isShowBackTop(position) {
       this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
-      console.log(position, this.backTopState, this.$store.state.screenHeight)
     }
   }
 }
 </script>
 
 <style>
-.find-navbar {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 45px;
-  z-index: 999;
-}
-
 .find-content {
   position: absolute;
   overflow: hidden;

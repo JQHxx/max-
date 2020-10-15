@@ -59,7 +59,7 @@ export default {
   .title-text {
     padding-top: 10px;
     width: 100%;
-    height: 70%;
+    height: 55%;
     color: black;
     font-size: 14px;
     font-weight: bold;
@@ -71,6 +71,7 @@ export default {
     width: 100%;
     display: flex;
     align-items: center;
+    height: 20%;
   }
 
   .views {
@@ -87,8 +88,9 @@ export default {
   }
   
   .views-icon {
-    width: 15px;
-    height: 15px;
+    display: inline-block;
+    height: 100%;
+    width: 15%;
   }
 
   .date {
@@ -100,8 +102,8 @@ export default {
   }
 
   .date-icon {
-    width: 15px;
-    height: 15px;
+    width: 15%;
+    height: 100%;
   }
 
   .date-text {

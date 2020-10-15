@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <Tabbar>
       <!-- 这里五个TabbarItem模板没具名，因此默认为default数据插入了Tabbar的default插槽 -->
       <TabbarItem path="/user">

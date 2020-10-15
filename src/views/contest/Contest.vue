@@ -1,67 +1,67 @@
 <template>
   <div class="page" ref="one">
     <div class="content">
-      <h2>赛事</h2>
+      <div class="contest">赛事</div>
       <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div class="sticky">-*--*--*-</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
     </div>
   </div>
 </template>>
@@ -90,5 +90,19 @@
   height: 400px;
   background-color: red;
   width: 100%;
+}
+
+.contest {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45px;
+  background-color: yellow;
+}
+
+.sticky {
+  top: 45px;
+  position: sticky;
 }
 </style>

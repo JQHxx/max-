@@ -124,19 +124,19 @@ export default {
 
     /* 操作DOM, 在DOM前后添加Slide */
     handleDom: function () {
-      // css选择器获取所有swiperimages节点
+      // css选择器获取所有swiperitem节点
       let swiperElements = document.querySelector('#swiper .swiper-main');
       // get获取的是list
-      let swiperimages = swiperElements.getElementsByClassName('swiperimages');
+      let swiperitem = swiperElements.getElementsByClassName('swiperitem');
       // 获取图片张数作为索引，张数为传过来的初始值
-      this.slideCount = swiperimages.length;
+      this.slideCount = swiperitem.length;
       if (this.slideCount > 1) {
         // cloneNode节点克隆方法，传参true则拷贝当前节点外还拷贝其子孙节点
         // 获取第一张和最后一张image
-        let cloneFirst = swiperimages[0].cloneNode(true);
-        let cloneLast = swiperimages[this.slideCount-1].cloneNode(true);
+        let cloneFirst = swiperitem[0].cloneNode(true);
+        let cloneLast = swiperitem[this.slideCount-1].cloneNode(true);
         // 将最后一张的备份插到第一张前面，如果不备份一张，则是插麻将，appendChild同理
-        swiperElements.insertBefore(cloneLast, swiperimages[0]);
+        swiperElements.insertBefore(cloneLast, swiperitem[0]);
         swiperElements.appendChild(cloneFirst);
         // 提取swiper节点的样式
         this.swiperStyle = swiperElements.style;

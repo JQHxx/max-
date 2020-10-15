@@ -33,7 +33,8 @@ export default {
     }
   },
   mounted() {
-    setTimeout(this.initBscroll, 200)
+    //setTimeout(this.initBscroll, 200)
+    this.initBscroll()
   },
   methods: {
     // 2.创建bs实例，属性由父传子提供
@@ -43,7 +44,7 @@ export default {
         probeType: this.probeType,
         pullUpLoad: this.pullUpLoad
       })
-    // 注意这里不是调用的函数接口
+    // 3.监听滚动相关事件，注意这里不是调用的函数接口
     this.bscroll.on('pullingUp', this.pullingUpHandler)
     this.bscroll.on('scroll', (position)=>{this.scrollHandler(position)})
     },
@@ -54,6 +55,7 @@ export default {
     },
 
     finishPullUpHandler() {
+      if (this.bscroll === null) {return}
       this.bscroll.finishPullUp(),
       this.bscroll.refresh()
     },
