@@ -45,6 +45,7 @@ export default {
       })
     // 注意这里不是调用的函数接口
     this.bscroll.on('pullingUp', this.pullingUpHandler)
+    this.bscroll.on('scroll', (position)=>{this.scrollHandler(position)})
     },
 
     pullingUpHandler() {
@@ -57,7 +58,11 @@ export default {
       this.bscroll.refresh()
     },
 
-    scrollTo(x, y, time=300) {
+    scrollHandler(position) {
+      this.$emit('scrollPostion', position)
+    },
+
+    scrollTo(x, y, time) {
         this.bscroll.scrollTo(x, y, time)
     },
   }

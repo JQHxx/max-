@@ -5,11 +5,13 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    screenWidth: 0
+    screenWidth: 0,
+    screenHeight: 0
   },
   mutations: {
-    getScreenWidth (state, width) {
-      state.screenWidth = width
+    getScreenWidthHeight(state, l) {
+      state.screenWidth = l[0]
+      state.screenHeight = l[1]
     }
   },
   actions: {},

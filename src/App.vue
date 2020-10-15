@@ -33,28 +33,36 @@
 </template>
 
 <script>
-  import Tabbar from "./components/common/tabbar/Tabbar"
-  import TabbarItem from "./components/common/tabbar/TabbarItem"
-  export default {
-    name: 'App',
-    components: {
-      Tabbar,
-      TabbarItem
-    },
-    methods: {
-      // 全局常量屏幕宽度
-      getScreenWidth() {
-        let e = document.querySelector('#tabbar');
-        let w = e.offsetWidth;
-        this.$store.commit("getScreenWidth", w)
-      }
-    },
-    mounted: function () {
-      this.getScreenWidth()
+import Tabbar from "./components/common/tabbar/Tabbar"
+import TabbarItem from "./components/common/tabbar/TabbarItem"
+export default {
+  name: 'App',
+  components: {
+    Tabbar,
+    TabbarItem
+  },
+  methods: {
+    // 全局常量屏幕宽度
+    init() {
+      let app = document.querySelector('#app')
+      let w = app.offsetWidth;
+      let h = app.offsetHeight;
+      // 参数只接收一个
+      this.$store.commit("getScreenWidthHeight", [w, h])
     }
+  },
+  mounted: function () {
+    this.init()
   }
+}
 </script>
 
 <style>
-  @import url('./assets/css/base.css');
+#app {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}
 </style>
