@@ -1,40 +1,47 @@
 <template>
-  <div class="news-item" @click="itemclick">
-    <div class="image">
-      <slot name="image"></slot>
+<div class="news-item" @click="itemclick">
+  <div class="image">
+    <slot name="image"></slot>
+  </div>
+  <div class="title">
+    <div class="title-text">
+      <slot name="title"></slot>
     </div>
-    <div class="title">
-      <div class="title-text">
-        <slot name="title"></slot>
-      </div>
-      <div class="endnote">
-        <div class="views">
-          <div class="views-icon">
-            <img src="../../../assets/img/common/browse-icon.svg" alt="">
-          </div>
-          <div class="views-text">
-            <slot name="views"></slot>
-          </div>
+    <div class="endnote">
+      <div class="views">
+        <div class="views-icon">
+          <img src="../../../assets/img/common/browse-icon.svg" alt="">
         </div>
-        <div class="date">
-          <div class="date-icon">
-            <img src="../../../assets/img/common/clock-icon.svg" alt="">
-          </div>
-          <div class="date-text">
-            <slot name="date"></slot>
-          </div>
+        <div class="views-text">
+          <slot name="views"></slot>
+        </div>
+      </div>
+      <div class="date">
+        <div class="date-icon">
+          <img src="../../../assets/img/common/clock-icon.svg" alt="">
+        </div>
+        <div class="date-text">
+          <slot name="date"></slot>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
 export default {
   name: "NewsItems",
+  props: {
+    NewsItem: {
+      type: Object,
+      default() {return {}}
+    }
+  },
   methods: {
     itemclick () {
-      /*  */
+      let id = this.NewsItem.id
+      this.$router.push({path: '/detail', query: {id}})d
     }
   }
 }

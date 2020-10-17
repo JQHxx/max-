@@ -53,6 +53,11 @@
   height: 100%;
 }
 
+.swiper-images img {
+  width: 100%;
+  height: 100%;
+}
+
 .swiper-title {
   position: absolute;
   bottom: 0px;

@@ -128,7 +128,7 @@ export default {
 .hy-tab {
   overflow: hidden;
   position: absolute;
-  top: 40px;
+  top: 45px;
   left: 0%;
   right: 0%;
 }
@@ -144,7 +144,7 @@ export default {
   width: 100%;
   text-align: center;
   font-size: 15px;
-  height: 40px;
+  height: 45px;
   background-color: black;
   align-items: center;
 }

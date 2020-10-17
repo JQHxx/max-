@@ -1,7 +1,7 @@
 <template>
-  <div class="navbar-login" @click="itemclick">
-    <img src="../../../assets/img/common/login-icon.svg" alt="">
-  </div>
+<div class="back-route" @click="itemclick">
+  <img src="../../../assets/img/common/back.svg" alt="">
+</div>
 </template>
 
 <script>
@@ -15,13 +15,14 @@ export default {
   },
   methods: {
     itemclick () {
+      this.$router.back()
     }
   }
 }
 </script>
 
 <style>
-.navbar-login {
+.back-route {
   height: 100%;
   width: 100%;
   display: flex;
@@ -29,7 +30,7 @@ export default {
   align-items: center;
 }
 
-.navbar-login img {
+.back-route img {
   width: 24px;
   height: 24px;
 }

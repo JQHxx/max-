@@ -4,12 +4,9 @@
     <!-- 记住规律：slot=""插针总是插向包裹它的子模板-->
     <!-- 这里slot插针就无法写在navbarlogin组件页面，因为同一页面没有包裹他的模板标签，模板标签写在了user页面 -->
     <Navbar>
-      <NavbarLogin slot="left">
-      </NavbarLogin>
-      <NavbarLog slot="center">
-      </NavbarLog>
-      <NavbarSearch slot="right">
-      </NavbarSearch>
+      <NavbarLogin slot="left"/>
+      <NavbarLog slot="center"/>
+      <NavbarSearch slot="right"/>
     </Navbar>
   </div>
 </template>>

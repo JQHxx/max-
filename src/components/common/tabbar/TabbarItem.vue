@@ -1,15 +1,15 @@
 <template>
-  <div class="tabbar-item" @click="itemclick">
-    <div v-if="isactive">
-      <slot name="item-icon-fill"></slot>
-    </div>
-    <div v-else>
-      <slot name="item-icon"></slot>
-    </div>
-    <div :class="{item_text: isactive}">
-      <slot name="item-text"></slot>
-    </div>
+<div class="tabbar-item" @click="itemclick">
+  <div v-if="isactive">
+    <slot name="item-icon-fill"></slot>
   </div>
+  <div v-else>
+    <slot name="item-icon"></slot>
+  </div>
+  <div :class="{item_text: isactive}">
+    <slot name="item-text"></slot>
+  </div>
+</div>
 </template>
 
 <script>
@@ -43,20 +43,20 @@ export default {
 </script>
 
 <style>
-  .tabbar-item {
-    flex: 1;
-    text-align: center;
-    position: relative;
-    color: #bababa;
-    font-size: 8px;
-  }
+.tabbar-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  color: #bababa;
+  font-size: 8px;
+}
 
-  .item_text {
-    color: blue
-  }
+.item_text {
+  color: blue
+}
 
-  .tabbar-item img {
-    width: 24px;
-    height: 24px;
-  }
+.tabbar-item img {
+  width: 24px;
+  height: 24px;
+}
 </style>

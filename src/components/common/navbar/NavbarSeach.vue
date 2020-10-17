@@ -15,15 +15,23 @@ export default {
   },
   methods: {
     itemclick () {
-      
+      /*  */
     }
   }
 }
 </script>
 
 <style>
-  .navbar-search img {
-    width: 24px;
-    height: 24px;
-  }
+.navbar-search {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-search img {
+  width: 24px;
+  height: 24px;
+}
 </style>

@@ -15,7 +15,7 @@
     </Scroll>
   </div>
   <div class="find-backtop" @click="handleBackTop" v-show="backTopState">
-    <BackTopcpn/>
+    <BackTop/>
   </div>
 </div>
 </template>
@@ -29,7 +29,7 @@ import {getFindHeadlines, getFindNews} from "../../network/find"
 import FindSwiper from "./findcomps/FindSwiper"
 import FindNews from "./findcomps/FindNews"
 import Scroll from "../../components/common/scroll/Scroll"
-import BackTopcpn from "../../components/content/backtop/BackTopcpn"
+import BackTop from "../../components/common/backtop/Backtop"
 
 export default {
   name: "Find",
@@ -41,7 +41,7 @@ export default {
     FindSwiper,
     FindNews,
     Scroll,
-    BackTopcpn
+    BackTop
   },
   created() {
     /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */

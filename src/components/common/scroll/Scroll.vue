@@ -18,14 +18,14 @@ BScroll.use(Pullup)
 export default {
   name: "Scroll",
   props: {
-      probeType: {
-        type: Number,
-        default: 0
-      },
-      pullUpLoad: {
-        type: Boolean,
-        default: false
-      },
+    probeType: {
+      type: Number,
+      default: 0
+    },
+    pullUpLoad: {
+      type: Boolean,
+      default: false
+    },
   },
   data() {
     return {

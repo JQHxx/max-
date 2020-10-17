@@ -13,30 +13,30 @@
 </template>
 
 <script>
-  import SwiperItem from "../../../components/common/swiper/SwiperItem"
-  import Swiper from "../../../components/common/swiper/Swiper"
-  import {timestampToTime} from "../../../utils/utils"
+import SwiperItem from "../../../components/common/swiper/SwiperItem"
+import Swiper from "../../../components/common/swiper/Swiper"
+import {timestampToTime} from "../../../utils/utils"
 
-  export default {
-    name: "FindSwiper",
-    props: {
-      RotationItems: {
-        type: Array,
-        default() {
-          return []
-        }
-      }
-    },
-    components: {
-      Swiper,
-      SwiperItem
-    },
-    filters: {
-      timestampToTime(timestamp) {
-        return timestampToTime(timestamp)
+export default {
+  name: "FindSwiper",
+  props: {
+    RotationItems: {
+      type: Array,
+      default() {
+        return []
       }
     }
+  },
+  components: {
+    Swiper,
+    SwiperItem
+  },
+  filters: {
+    timestampToTime(timestamp) {
+      return timestampToTime(timestamp)
+    }
   }
+}
 </script>
 
 <style>

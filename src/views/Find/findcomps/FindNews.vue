@@ -1,7 +1,7 @@
 <template>
 <div class="find-news">
   <News>
-    <NewsItems v-for="(item, index) in FindNews" :key=index>
+    <NewsItems v-for="(item, index) in FindNews" :key=index :NewsItem="item">
       <img slot="image" :src="item.cover_url" alt="">
       <div slot="title">{{item.title}}</div>
       <div slot="views">{{item.views}}</div>
@@ -12,30 +12,30 @@
 </template>
 
 <script>
-  import NewsItems from "../../../components/content/news/NewsItems"
-  import News from "../../../components/content/news/News"
-  import {timestampToTime} from "../../../utils/utils"
+import NewsItems from "../../../components/content/news/NewsItems"
+import News from "../../../components/content/news/News"
+import {timestampToTime} from "../../../utils/utils"
 
-  export default {
-    name: "FindNews",
-    props: {
-      FindNews: {
-        type: Array,
-        default() {
-          return []
-        }
+export default {
+  name: "FindNews",
+  props: {
+    FindNews: {
+      type: Array,
+      default() {
+        return []
       }
-    },
-    filters: {
-      timestampToTime(timestamp) {
-        return timestampToTime(timestamp)
-      }
-    },
-    components: {
-      NewsItems,
-      News
     }
+  },
+  filters: {
+    timestampToTime(timestamp) {
+      return timestampToTime(timestamp)
+    }
+  },
+  components: {
+    NewsItems,
+    News
   }
+}
 </script>
 
 <style>

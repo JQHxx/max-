@@ -1,47 +1,22 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <!-- 另一种保存当前阅读位置的方法，使用activated和deactivated生命周期函数，
+      首先由scrollHandler获取的position动态存储在父组件，当deactivated触发离开页面时
+      记录当前位置，activated触发进入页面时，调用scrollTo前往当前页面 -->
+    <keep-alive exclude="Detail">
       <router-view></router-view>
     </keep-alive>
-    <Tabbar>
-      <!-- 这里五个TabbarItem模板没具名，因此默认为default数据插入了Tabbar的default插槽 -->
-      <TabbarItem path="/user">
-        <img slot="item-icon-fill" src="./assets/img/tabbar/user-fill.svg" alt="">
-        <img slot="item-icon" src="./assets/img/tabbar/user.svg" alt="">
-        <span slot="item-text">我的</span>
-      </TabbarItem>
-      <TabbarItem path="/data">
-        <img slot="item-icon-fill" src="./assets/img/tabbar/data-fill.svg" alt="">
-        <img slot="item-icon" src="./assets/img/tabbar/data.svg" alt="">
-        <span slot="item-text">数据</span>
-      </TabbarItem>
-      <TabbarItem path="/contest">
-        <img slot="item-icon-fill" src="./assets/img/tabbar/contest-fill.svg" alt="">
-        <img slot="item-icon" src="./assets/img/tabbar/contest.svg" alt="">
-        <span slot="item-text">赛事</span>
-      </TabbarItem>
-      <TabbarItem path="/community">
-        <img slot="item-icon-fill" src="./assets/img/tabbar/community-fill.svg" alt="">
-        <img slot="item-icon" src="./assets/img/tabbar/community.svg" alt="">
-        <span slot="item-text">社区</span>
-      </TabbarItem>
-      <TabbarItem path="/find">
-        <img slot="item-icon-fill" src="./assets/img/tabbar/find-fill.svg" alt="">
-        <img slot="item-icon" src="./assets/img/tabbar/find.svg" alt="">
-        <span slot="item-text">发现</span>
-      </TabbarItem>
-    </Tabbar>
+    <MaxTabBar/>
   </div>
 </template>
 
 <script>
-import Tabbar from "./components/common/tabbar/Tabbar"
-import TabbarItem from "./components/common/tabbar/TabbarItem"
+import MaxTabBar from "./components/content/maxtabbar/MaxTabBar"
+
 export default {
   name: 'App',
   components: {
-    Tabbar,
-    TabbarItem
+    MaxTabBar
   },
   methods: {
     // 全局常量屏幕宽度

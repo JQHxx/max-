@@ -11,18 +11,18 @@ export default {
 </script>
 
 <style>
-  #tabbar {
-    display: flex;
-    background-color:white;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-top-style: solid;
-    border-width: 1px;
-    border-color: #bababa;
-    height: 45px;
-    align-items: center;
-    width: 100%;
-  }
+#tabbar {
+  display: flex;
+  background-color:white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: #bababa;
+  height: 45px;
+  align-items: center;
+  width: 100%;
+}
 </style>
