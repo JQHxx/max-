@@ -2,7 +2,7 @@
 <div class="find-swiper">
   <Swiper>
     <!-- 若干swiperitem，不加key引警告  -->
-    <SwiperItem v-for="(item, index) in RotationItems" :key=index>
+    <SwiperItem v-for="(item, index) in RotationItems" :key=index :SwiperItem=item>
       <img class="images" slot="image" :src="item.cover_url" alt="">
       <div slot="title">{{item.title}}</div>
       <div slot="views">{{item.views}}</div>

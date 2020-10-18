@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     itemclick () {
-      let id = this.NewsItem.id
-      this.$router.push({path: '/detail', query: {id}})d
+      let id = this.NewsItem.id;
+      this.$router.push({path: '/detail', query: {id}})
     }
   }
 }

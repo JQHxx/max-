@@ -71,15 +71,18 @@ export default {
       /* 子传父供其他组件调用 */
       this.cIndex = index
       this.computePostion()
-      this.SetTransform(0)
+      this.tabSetTransform(0)
+      this.contentSetTransform(0)
     },
 
-    SetTransform(distance) {
+    contentSetTransform(distance) {
       let contentPostion = this.contentCurrentPosition+distance
       this.tabcontentStyle.transform = `translate3d(${contentPostion}px, 0, 0)`;
       this.tabcontentStyle['-webkit-transform'] = `translate3d(${contentPostion}px), 0, 0`;
       this.tabcontentStyle['-ms-transform'] = `translate3d(${contentPostion}px), 0, 0`;
+    },
 
+    tabSetTransform(distance) {
       let tabPostion = this.tabCurrentPosition+(-distance/this.$store.state.screenWidth*this.tabItemWidth)
       this.tabbarStyle.transform = `translate3d(${tabPostion}px, 0, 0)`;
       this.tabbarStyle['-webkit-transform'] = `translate3d(${tabPostion}px), 0, 0`;
@@ -100,7 +103,8 @@ export default {
       else if (this.cIndex === this.tabTitles.length-1 && this.distance<0) {
         this.distance<-this.moveLimit ? l=-this.moveLimit : l=this.distance
       }
-      this.SetTransform(l)
+      this.contentSetTransform(l)
+      this.tabSetTransform(l)
     },
 
     touchEnd(e) {
@@ -112,7 +116,8 @@ export default {
         this.cIndex++}
       // 执行切换，如果没超过划动限制那么索引不变图像归位
       this.computePostion()
-      this.SetTransform(0)
+      this.contentSetTransform(0)
+      this.tabSetTransform(0)
     }
   }
 }

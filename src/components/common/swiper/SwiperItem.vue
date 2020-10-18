@@ -1,5 +1,5 @@
 <template>
-  <div class="swiperitem">
+  <div class="swiperitem" @click="itemclick">
     <div class="swiper-images">
       <slot name="image"></slot>
     </div>
@@ -33,9 +33,17 @@
 <script>
 	export default {
     name: "SwiperItem",
+    props: {
+      SwiperItem: {
+        type: Object,
+        default() {return {}}
+      }
+    },
     methods: {
       itemclick() {
-         
+        let id = this.SwiperItem.id;
+        this.$router.push({path: '/detail', query: {id}})
+        console.log(id)
       }
     }
 	}

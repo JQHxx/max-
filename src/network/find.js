@@ -1,4 +1,4 @@
-import {request, findItemsRequest} from "./request";
+import {findItemsRequest} from "./request";
 
 export function getFindHeadlines() {
   return findItemsRequest({

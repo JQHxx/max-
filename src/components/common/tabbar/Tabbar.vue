@@ -24,5 +24,6 @@ export default {
   height: 45px;
   align-items: center;
   width: 100%;
+  z-index: 998;
 }
 </style>

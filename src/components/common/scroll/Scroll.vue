@@ -56,7 +56,7 @@ export default {
 
     finishPullUpHandler() {
       if (this.bscroll === null) {return}
-      this.bscroll.finishPullUp(),
+      this.bscroll.finishPullUp()
       this.bscroll.refresh()
     },
 
@@ -66,7 +66,7 @@ export default {
 
     scrollTo(x, y, time) {
         this.bscroll.scrollTo(x, y, time)
-    },
+    }
   }
 }
 </script>
