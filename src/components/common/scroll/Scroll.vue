@@ -26,6 +26,12 @@ export default {
       type: Boolean,
       default: false
     },
+    content: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
   },
   data() {
     return {
@@ -33,8 +39,7 @@ export default {
     }
   },
   mounted() {
-    //setTimeout(this.initBscroll, 200)
-    this.initBscroll()
+    setTimeout(this.initBscroll, 200)
   },
   methods: {
     // 2.创建bs实例，属性由父传子提供
@@ -57,6 +62,10 @@ export default {
     finishPullUpHandler() {
       if (this.bscroll === null) {return}
       this.bscroll.finishPullUp()
+      //this.bscroll.refresh()
+    },
+
+    refresh() {
       this.bscroll.refresh()
     },
 
@@ -66,6 +75,12 @@ export default {
 
     scrollTo(x, y, time) {
         this.bscroll.scrollTo(x, y, time)
+    }
+  },
+  watch: {
+    content() {
+      // 零延时refresh数据还未加载完毕会记录错误的位置
+      setTimeout(this.refresh, 100)
     }
   }
 }

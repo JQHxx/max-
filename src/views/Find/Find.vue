@@ -8,6 +8,7 @@
   <div class="find-content">
     <Scroll ref="scroll"
             :probeType="3" :pullUpLoad="true"
+            :content="FindNews.list"
             @pullingUps="getFindNews"
             @scrollPostion="isShowBackTop">
       <FindSwiper :RotationItems="RotationItems"/>
