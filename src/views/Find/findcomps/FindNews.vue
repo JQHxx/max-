@@ -7,6 +7,7 @@
       <div slot="views">{{item.views}}</div>
       <div slot="date">{{item.released_timestamp | timestampToTime}}</div>
     </NewsItems>
+    <BottomItem/>
   </News>
 </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
 import NewsItems from "../../../components/content/news/NewsItems"
 import News from "../../../components/content/news/News"
+import BottomItem from "../../../components/content/bottemitem/BottemItem"
 import {timestampToTime} from "../../../utils/utils"
 
 export default {
@@ -33,7 +35,8 @@ export default {
   },
   components: {
     NewsItems,
-    News
+    News,
+    BottomItem
   }
 }
 </script>

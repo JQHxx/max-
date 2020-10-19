@@ -8,6 +8,7 @@
     <div class="detail-body">
       <DetailBody :item="item"/>
     </div>
+    <BottomItem/>
   </Scroll>
 </div>
 </template>
@@ -16,6 +17,7 @@
 import DetailNavbar from "./detailcomps/DetailNavbar"
 import DetailBody from "./detailcomps/DetailBody"
 import Scroll from "../../common/scroll/Scroll"
+import BottomItem from "../../content/bottemitem/BottemItem"
 import {getFindDetail} from "../../../network/detail"
 
 export default {
@@ -32,7 +34,8 @@ export default {
   components: {
     DetailNavbar,
     DetailBody,
-    Scroll
+    Scroll,
+    BottomItem
   },
   created() {
     this.id = this.$route.query.id
@@ -64,6 +67,7 @@ export default {
 .detail-wrapper{
   position: absolute;
   top: 45px;
+  bottom: 45px;
   width: 100%;
 }
 

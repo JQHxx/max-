@@ -80,7 +80,7 @@ export default {
   watch: {
     content() {
       // 零延时refresh数据还未加载完毕会记录错误的位置
-      setTimeout(this.refresh, 100)
+      setTimeout(this.refresh, 20)
     }
   }
 }
@@ -88,8 +88,4 @@ export default {
 
 <style>
 /* 1.content的高度一定要大于ref的wrapper，2.dom有图片需要延迟mounted挂载 */
-.wrapper {
-  height: 100%;
-  width: 100%;
-}
 </style>

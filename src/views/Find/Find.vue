@@ -6,7 +6,7 @@
     <NavbarSearch slot="right"/>
   </Navbar>
   <div class="find-content">
-    <Scroll ref="scroll"
+    <Scroll class="find-wrapper" ref="scroll"
             :probeType="3" :pullUpLoad="true"
             :content="FindNews.list"
             @pullingUps="getFindNews"
@@ -98,6 +98,11 @@ export default {
   bottom: 45px;
   right: 0px;
   left: 0px;
+}
+
+.find-wrapper {
+  width: 100%;
+  height: 100%;
 }
 
 .find-backtop {

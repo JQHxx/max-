@@ -51,7 +51,8 @@ export default {
   .news-item {
     display: flex;
     border-top-style: solid;
-    border-width: 2px;
+    border-bottom-style: solid;
+    border-width: 1px;
     border-color: #bfbfbf;
     height: 84px;
     width: 100%;
