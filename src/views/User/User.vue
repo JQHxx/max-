@@ -8,6 +8,9 @@
       <NavbarLog slot="center"/>
       <NavbarSearch slot="right"/>
     </Navbar>
+    <div class="user-content">
+      <Login/>
+    </div>
   </div>
 </template>>
 
@@ -16,6 +19,7 @@
   import NavbarLogin from "../../components/common/navbar/NavbarLogin"
   import NavbarLog from "../../components/common/navbar/NavbarLog"
   import NavbarSearch from "../../components/common/navbar/NavbarSeach"
+  import Login from "../../components/common/login/Login"
 
   export default {
     name: "User",
@@ -23,10 +27,19 @@
       Navbar,
       NavbarLogin,
       NavbarLog,
-      NavbarSearch
+      NavbarSearch,
+      Login
     }
   }
 </script>
 
 <style>
+.user-content {
+  position: absolute;
+  overflow: hidden;
+  top: 45px;
+  bottom: 45px;
+  right: 0px;
+  left: 0px;
+}
 </style>>

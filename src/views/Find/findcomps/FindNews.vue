@@ -16,7 +16,6 @@
 import NewsItems from "../../../components/content/news/NewsItems"
 import News from "../../../components/content/news/News"
 import BottomItem from "../../../components/content/bottemitem/BottemItem"
-import {timestampToTime} from "../../../utils/utils"
 
 export default {
   name: "FindNews",
@@ -26,11 +25,6 @@ export default {
       default() {
         return []
       }
-    }
-  },
-  filters: {
-    timestampToTime(timestamp) {
-      return timestampToTime(timestamp)
     }
   },
   components: {

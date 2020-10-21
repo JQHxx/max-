@@ -18,6 +18,7 @@ export function timestampToTime(timestamp) {
   if (ny-ry>0) {return ny-ry+"年前"}
   else if (nm-rm>0) {return nm-rm+"个月前"}
   else if (nd-rd>0) {return nd-rd+"天前"}
+  else if (nh-rh>0) {return nh-rh+"小时前"}
   else if (nmi-rmi>0) {return nmi-rmi+"分钟前"}
   else {return "刚刚"}
 }

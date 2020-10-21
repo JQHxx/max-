@@ -66,6 +66,7 @@ export default {
     },
 
     refresh() {
+      if (this.bscroll === null) {return}
       this.bscroll.refresh()
     },
 

@@ -77,7 +77,7 @@ export default {
 
 .detail-text {
   text-align: justify;
-  margin: 0 20px 0 20px;
+  margin: 0 20px 20px 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 </style>

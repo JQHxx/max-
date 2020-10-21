@@ -2,8 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
+import {timestampToTime} from './utils/utils'
 
 Vue.config.productionTip = false
+Vue.filter('timestampToTime', timestampToTime)
 
 new Vue({
   router,

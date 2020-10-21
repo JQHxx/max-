@@ -26,11 +26,11 @@ import Navbar from "../../components/common/navbar/Navbar"
 import NavbarLogin from "../../components/common/navbar/NavbarLogin"
 import NavbarLog from "../../components/common/navbar/NavbarLog"
 import NavbarSearch from "../../components/common/navbar/NavbarSeach"
-import {getFindHeadlines, getFindNews} from "../../network/find"
 import FindSwiper from "./findcomps/FindSwiper"
 import FindNews from "./findcomps/FindNews"
 import Scroll from "../../components/common/scroll/Scroll"
 import BackTop from "../../components/common/backtop/Backtop"
+import {getFindHeadlines, getFindNews} from "../../network/find"
 
 export default {
   name: "Find",

@@ -15,6 +15,7 @@ export default {
   },
   methods: {
     itemclick () {
+      this.$router.push("/user")
     }
   }
 }

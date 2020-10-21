@@ -15,7 +15,6 @@
 <script>
 import SwiperItem from "../../../components/common/swiper/SwiperItem"
 import Swiper from "../../../components/common/swiper/Swiper"
-import {timestampToTime} from "../../../utils/utils"
 
 export default {
   name: "FindSwiper",
@@ -30,11 +29,6 @@ export default {
   components: {
     Swiper,
     SwiperItem
-  },
-  filters: {
-    timestampToTime(timestamp) {
-      return timestampToTime(timestamp)
-    }
   }
 }
 </script>
