@@ -1,108 +1,47 @@
 <template>
-  <div class="page" ref="one">
-    <div class="content">
-      <div class="contest">赛事</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div class="sticky">-*--*--*-</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-    </div>
+  <div id="contest">
+    <Navbar>
+      <div slot="center" class="logo">全部赛事</div>
+    </Navbar>
+    <Scroll class="wrapper">
+      <ContestContent/>
+    </Scroll>
   </div>
 </template>>
 
 <script>
-  import BScroll from '@better-scroll/core'
+  import Navbar from "../../components/common/navbar/Navbar"
+  import Scroll from "../../components/common/scroll/Scroll"
+  import ContestContent from "./contestcamps/ContestContent"
+
   export default {
     name: "Data",
-    components: {},
-    mounted() {
-      this.init()
+    components: {
+      Navbar,
+      Scroll,
+      ContestContent
     },
-    methods: {
-      init() {
-        this.bscroll = new BScroll(this.$refs.one, {
-          click:true,
-          probeType: 3,
-        })
-      }
-    }
+    mounted() {},
+    methods: {}
   }
 </script>
 
-<style>
-.page {
-  height: 400px;
-  background-color: red;
-  width: 100%;
-}
-
-.contest {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 45px;
-  background-color: yellow;
-}
-
-.sticky {
+<style scoped>
+.wrapper {
+  position: absolute;
+  overflow: hidden;
   top: 45px;
-  position: sticky;
+  bottom: 45px;
+  right: 0px;
+  left: 0px;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
 }
 </style>

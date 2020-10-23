@@ -10,6 +10,7 @@
     </div>
     <BottomItem/>
   </Scroll>
+  <CommentBox/>
 </div>
 </template>
 
@@ -17,7 +18,8 @@
 import DetailNavbar from "./detailcomps/DetailNavbar"
 import DetailBody from "./detailcomps/DetailBody"
 import Scroll from "../../common/scroll/Scroll"
-import BottomItem from "../../content/bottemitem/BottemItem"
+import BottomItem from "../bottemitem/BottemItem"
+import CommentBox from "../commentbox/CommentBox"
 import {getFindDetail} from "../../../network/detail"
 
 export default {
@@ -35,7 +37,8 @@ export default {
     DetailNavbar,
     DetailBody,
     Scroll,
-    BottomItem
+    BottomItem,
+    CommentBox
   },
   created() {
     this.id = this.$route.query.id

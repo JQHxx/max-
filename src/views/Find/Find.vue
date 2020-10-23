@@ -5,19 +5,15 @@
     <NavbarLog slot="center"/>
     <NavbarSearch slot="right"/>
   </Navbar>
-  <div class="find-content">
-    <Scroll class="find-wrapper" ref="scroll"
-            :probeType="3" :pullUpLoad="true"
-            :content="FindNews.list"
-            @pullingUps="getFindNews"
-            @scrollPostion="isShowBackTop">
-      <FindSwiper :RotationItems="RotationItems"/>
-      <FindNews :FindNews="FindNews.list"/>
-    </Scroll>
-  </div>
-  <div class="find-backtop" @click="handleBackTop" v-show="backTopState">
-    <BackTop/>
-  </div>
+  <Scroll class="wrapper" ref="scroll"
+          :probeType="3" :pullUpLoad="true"
+          :content="FindNews.list"
+          @pullingUps="getFindNews"
+          @scrollPostion="isShowBackTop">
+    <FindSwiper :RotationItems="RotationItems"/>
+    <FindNews :FindNews="FindNews.list"/>
+  </Scroll>
+  <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
 </div>
 </template>
 
@@ -90,8 +86,8 @@ export default {
 }
 </script>
 
-<style>
-.find-content {
+<style scoped>
+.wrapper {
   position: absolute;
   overflow: hidden;
   top: 45px;
@@ -100,12 +96,7 @@ export default {
   left: 0px;
 }
 
-.find-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.find-backtop {
+.backtop {
   position: fixed;
   right: 8px;
   bottom: 55px;

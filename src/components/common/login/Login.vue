@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <form class="form-login" action="/login/" method="post">
+  <form class="form-login" method="post" @submit="submit">
     <div class="group">
       <input type="text" name="username" class="input-text" placeholder="账户" autofocus="" maxlength="32" required>
     </div>
@@ -8,7 +8,6 @@
       <input type="password" name="password" class="input-text" placeholder="密码" maxlength="256" required>
     </div>
     <div class="btn">
-      <button href="/register/" class="register-btn">注册</button>
       <button type="submit" class="login-btn">登录</button>
     </div>
   </form>
