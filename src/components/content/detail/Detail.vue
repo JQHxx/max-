@@ -1,11 +1,11 @@
 <template>
 <div class="detail">
   <DetailNavbar/>
-  <Scroll class="detail-wrapper"
+  <Scroll class="wrapper"
           ref="scroll"
           :probeType="3" :pullUpLoad="true"
           @pullingUps="getComments">
-    <div class="detail-body">
+    <div class="body">
       <DetailBody :item="item"/>
     </div>
     <BottomItem/>
@@ -33,6 +33,7 @@ export default {
       },
     }
   },
+
   components: {
     DetailNavbar,
     DetailBody,
@@ -40,6 +41,7 @@ export default {
     BottomItem,
     CommentBox
   },
+
   created() {
     this.id = this.$route.query.id
 
@@ -55,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .detail {
   position: relative;
   top: 0px;
@@ -67,7 +69,7 @@ export default {
   overflow: hidden;
 }
 
-.detail-wrapper{
+.wrapper{
   position: absolute;
   top: 45px;
   bottom: 45px;
@@ -75,7 +77,7 @@ export default {
 }
 
 /* 父元素使用relative很好的解决了子元素absolute脱离文档解构的问题 */
-.detail-body {
+.body {
   position: relative;
   width: 100%;
 }

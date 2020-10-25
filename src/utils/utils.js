@@ -22,3 +22,15 @@ export function timestampToTime(timestamp) {
   else if (nmi-rmi>0) {return nmi-rmi+"分钟前"}
   else {return "刚刚"}
 }
+
+export function timestampToDetail(timestamp) {
+  let r_date = new Date(timestamp * 1000);
+  let ry = r_date.getFullYear();
+  let rm = r_date.getMonth()+1;
+  let rd = r_date.getDate();
+  let rh = r_date.getHours();
+  let rmi = r_date.getMinutes();
+
+  return ry+"-"+rm+"-"+rd+" "+rh+":"+rmi
+}
+

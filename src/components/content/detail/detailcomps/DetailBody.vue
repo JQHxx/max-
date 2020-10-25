@@ -1,16 +1,18 @@
 <template>
-  <div class="detail-body">
-    <div class="detail-cover">
-      <div class="detail-img">
+  <div class="body">
+    <div class="cover">
+      <div class="cover-image">
         <img :src="item.cover_url" alt="">
       </div>
-      <div class="detail-title-re">
-        <div class="detail-title">
+      <div class="title-relative">
+        <div class="title-absolute">
           {{item.title}}
         </div>
       </div>
     </div>
-    <div class="detail-text">
+    <AuthorInfo class="container"
+    :portrait="item.author_portrait" :time="item.released_timestamp" :nick_name="item.author_nickname"/>
+    <div class="body-text">
       {{item.text}}
     </div>
   </div>
@@ -20,6 +22,7 @@
 import Navbar from "../../../common/navbar/Navbar"
 import BackRoute from "../../../common/backroute/BackRoute"
 import Share from "../../../common/share/Share"
+import AuthorInfo from "../../authorinfo/AuthorInfo"
 
 export default {
   name: "DetailNavbar",
@@ -29,45 +32,46 @@ export default {
       default() {return {}}
     }
   },
+
   components: {
     Navbar,
     BackRoute,
-    Share
+    Share,
+    AuthorInfo
   }
 }
 </script>
 
-<style>
-.detail-body {
+<style scoped>
+.body {
   top: 0px;
   height: 100%;
   width: 100%;
 }
 
-.detail-cover{
+.cover{
   background-color: black;
   height: 250px;
   width: 100%;
 }
 
-.detail-img {
+.cover-image {
   width: 100%;
   height: 100%;
 }
 
-.detail-img img {
+.cover-image img {
   width: 100%;
   height: 100%;
 }
 
-.detail-title-re {
+.title-relative {
   position: relative;
 }
 
-.detail-title {
+.title-absolute {
   position: absolute;
   bottom: 20px;
-  margin: 0 20px 0 20px;
   text-align: center;
   color: white;
   font-size: 18px;
@@ -75,7 +79,14 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.detail-text {
+.container {
+  display: flex;
+  height: 45px;
+  width: 100%;
+  padding: 0 20px 0px 20px;
+}
+
+.body-text {
   text-align: justify;
   margin: 0 20px 20px 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

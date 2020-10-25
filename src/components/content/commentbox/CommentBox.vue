@@ -47,6 +47,10 @@ export default {
   border-radius: 8px;
 }
 
+input[type="text"]:focus {border-radius: 8px;border:2px solid blue;outline: none;}
+input[type="password"]:focus,
+textarea:focus { border: 1px solid #bfbfbfbf; background: #ccc; }
+
 .attach-box-right {
   width: 20%;
   height: 100%;
