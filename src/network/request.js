@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-export function findItemsRequest(config) {
+export function apiRequest(config) {
   const instance = new axios.create({
-    baseURL: 'http://192.168.3.82:8000/api',
+    baseURL: 'http://192.168.3.60:8000/api',
     timeout: 10000
   })
 

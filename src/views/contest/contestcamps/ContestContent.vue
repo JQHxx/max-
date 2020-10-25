@@ -1,8 +1,12 @@
 <template>
 <div class="content">
   <ContestContainer>
-    <ContestItems>
-      <!--  -->
+    <ContestItems v-for="(item, key) in ContestGame" :key=key :game_status="item.game_status" :is_end="item.is_end">
+      <img slot="r_team_sign" :src="item.r_team_sign" alt="">
+      <img slot="b_team_sign" :src="item.b_team_sign" alt="">
+      <div slot="r_team">{{item.r_team_name.slice(4)}}</div>
+      <div slot="b_team">{{item.b_team_name.slice(4)}}</div>
+      <div slot="contests_name">{{item.contests_name.slice(5)}}</div>
     </ContestItems>
     <BottomItem/>
   </ContestContainer>
@@ -18,7 +22,7 @@ export default {
   name: "ContestContent",
 
   props: {
-    ContestContent: {
+    ContestGame: {
       type: Array,
       default() {
         return []

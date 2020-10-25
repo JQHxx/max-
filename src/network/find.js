@@ -1,13 +1,13 @@
-import {findItemsRequest} from "./request";
+import {apiRequest} from "./request";
 
 export function getFindHeadlines() {
-  return findItemsRequest({
+  return apiRequest({
     url: '/find/news'
   })
 }
 
 export function getFindNews(page) {
-  return findItemsRequest({
+  return apiRequest({
     url: '/find/news',
     params: {
       page: page

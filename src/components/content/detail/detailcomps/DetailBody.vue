@@ -6,7 +6,7 @@
       </div>
       <div class="detail-title-re">
         <div class="detail-title">
-          {{ item.title}}
+          {{item.title}}
         </div>
       </div>
     </div>

@@ -3,8 +3,11 @@
     <Navbar>
       <div slot="center" class="logo">全部赛事</div>
     </Navbar>
-    <Scroll class="wrapper">
-      <ContestContent/>
+    <Scroll class="wrapper" ref="scroll"
+            :probeType="3" :pullUpLoad="true"
+            :content="ContestGame.list"
+            @pullingUps="getContestsGame">
+      <ContestContent :ContestGame="ContestGame.list"/>
     </Scroll>
   </div>
 </template>>
@@ -13,16 +16,39 @@
   import Navbar from "../../components/common/navbar/Navbar"
   import Scroll from "../../components/common/scroll/Scroll"
   import ContestContent from "./contestcamps/ContestContent"
+  import {getContestsGame} from "../../network/contests"
 
   export default {
     name: "Data",
+    data() {
+      return {
+        ContestGame: {page: 0, list: []},
+        backTopState: false
+      }
+    },
+
     components: {
       Navbar,
       Scroll,
       ContestContent
     },
-    mounted() {},
-    methods: {}
+
+    created() {
+      this.getContestsGame()
+    },
+
+    methods: {
+      async getContestsGame() {
+        const page = this.ContestGame.page+1
+        await getContestsGame(page)
+        .then(res=>{
+          console.log(res.results)
+          this.ContestGame.list.push(...res.results)
+          this.ContestGame.page += 1})
+        .catch(err=>{console.log(err)})
+        this.$refs.scroll.finishPullUpHandler()
+      }
+    }
   }
 </script>
 

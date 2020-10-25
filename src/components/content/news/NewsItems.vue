@@ -33,14 +33,14 @@
 export default {
   name: "NewsItems",
   props: {
-    NewsItem: {
-      type: Object,
-      default() {return {}}
+    NewsItemId: {
+      type: Number,
+      default() {return 0}
     }
   },
   methods: {
     itemclick () {
-      let id = this.NewsItem.id;
+      let id = this.NewsItemId;
       this.$router.push({path: '/detail', query: {id}})
     }
   }

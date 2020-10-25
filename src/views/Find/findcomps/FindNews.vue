@@ -1,7 +1,7 @@
 <template>
 <div class="find-news">
   <News>
-    <NewsItems v-for="(item, index) in FindNews" :key=index :NewsItem="item">
+    <NewsItems v-for="(item, index) in FindNews" :key=index :NewsItemId="item.id">
       <img slot="image" :src="item.cover_url" alt="">
       <div slot="title">{{item.title}}</div>
       <div slot="views">{{item.views}}</div>

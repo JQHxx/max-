@@ -1,7 +1,7 @@
-import {findItemsRequest} from "./request";
+import {apiRequest} from "./request";
 
 export function getFindDetail(page) {
-  return findItemsRequest({
+  return apiRequest({
     url: '/detail/'+page,
   })
 }
