@@ -1,7 +1,10 @@
 import {apiRequest} from "./request";
 
-export function getFindDetail(page) {
+export function getFindDetail(id) {
   return apiRequest({
-    url: '/find/news/'+page,
+    url: '/find/news',
+    params: {
+      id: id
+    }
   })
 }

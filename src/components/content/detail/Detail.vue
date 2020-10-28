@@ -46,7 +46,7 @@ export default {
     this.id = this.$route.query.id
 
     getFindDetail(this.id).then(res=>{
-      this.item = res
+      this.item = res.results[0]
     })
   },
   methods: {

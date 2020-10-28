@@ -1,10 +1,9 @@
 <template>
 <div>
   <div class="portrait">
-    <img :src="portrait" alt="">
+    <img :src="author_info.portrait" alt="">
   </div>
-  <div class="nickname">{{nick_name}}</div>
-  <div class="detail-time">{{time | timestampToDetail}}</div>
+  <div class="nickname">{{author_info.nickname}}</div>
 </div>
 </template>
 
@@ -13,18 +12,10 @@ import {timestampToDetail} from "../../../utils/utils"
 
 export default {
   props: {
-    portrait: {
-      type: String,
-      default() {return ""}
-    },
-    nick_name: {
-      type: String,
-      default() {return ""}
-    },
-    time: {
-      type: Number,
-      default() {return 0}
-    },
+    author_info: {
+      type: Object,
+      default() {return {}}
+    }
   },
   mounted() {
     /*  */
@@ -52,12 +43,6 @@ export default {
 .nickname {
   flex: 1;
   margin-left: 10px;
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-}
-
-.detail-time {
   display: flex;
   align-items: center;
   font-size: 12px;

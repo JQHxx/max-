@@ -10,8 +10,10 @@
         </div>
       </div>
     </div>
-    <AuthorInfo class="container"
-    :portrait="item.author_portrait" :time="item.released_timestamp" :nick_name="item.author_nickname"/>
+    <div class="info">
+      <AuthorInfo class="author-info" :author_info="item.author"/>
+      <div class="released-time">{{item.released_timestamp | timestampToDetail}}</div>
+    </div>
     <div class="body-text">
       {{item.text}}
     </div>
@@ -79,6 +81,23 @@ export default {
   font-size: 18px;
   font-weight: bold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.info {
+  margin: 0 20px 0 20px;
+  height: 45px;
+  display: flex;
+}
+
+.author-info {
+  flex: 1;
+  display: flex;
+}
+
+.released-time {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
 }
 
 /* width: 100%和margin-right相冲突，独占元素可使用auto，并列元素flex: 1 */
