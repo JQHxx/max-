@@ -10,7 +10,7 @@
       <ContestContent :ContestGame="ContestGame.list"/>
     </Scroll>
   </div>
-</template>>
+</template>
 
 <script>
   import Navbar from "../../components/common/navbar/Navbar"
@@ -42,7 +42,6 @@
         const page = this.ContestGame.page+1
         await getContestsGame(page)
         .then(res=>{
-          console.log(res.results)
           this.ContestGame.list.push(...res.results)
           this.ContestGame.page += 1})
         .catch(err=>{console.log(err)})

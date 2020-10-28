@@ -58,10 +58,8 @@ export default {
 }
 
 .detail-time {
-  width: 30%;
   display: flex;
   align-items: center;
   font-size: 12px;
-  margin-right: 20px;
 }
 </style>

@@ -67,9 +67,11 @@ export default {
 
 .title-relative {
   position: relative;
+  width: 100%;
 }
 
 .title-absolute {
+  width: 100%;
   position: absolute;
   bottom: 20px;
   text-align: center;
@@ -79,11 +81,12 @@ export default {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* width: 100%和margin-right相冲突，独占元素可使用auto，并列元素flex: 1 */
 .container {
   display: flex;
   height: 45px;
-  width: 100%;
-  padding: 0 20px 0px 20px;
+  width: auto;
+  margin: 0 20px 0px 20px;
 }
 
 .body-text {

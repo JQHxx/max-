@@ -47,87 +47,87 @@ export default {
 }
 </script>
 
-<style>
-  .news-item {
-    display: flex;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 1px;
-    border-color: #bfbfbf;
-    height: 84px;
-    width: 100%;
-  }
+<style scoped>
+.news-item {
+  display: flex;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: #bfbfbf;
+  height: 84px;
+  width: 100%;
+}
 
-  .title {
-    width: 65%;
-    height: 100%;
-    padding: 0 15px 0 15px;
-  }
+.title {
+  flex: 1;
+  height: 100%;
+  padding: 0 15px 0 15px;
+}
 
-  .title-text {
-    padding-top: 10px;
-    width: 100%;
-    height: 55%;
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+.title-text {
+  padding-top: 10px;
+  width: 100%;
+  height: 55%;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
-  .endnote {
-    bottom: 5%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 20%;
-  }
+.endnote {
+  bottom: 5%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 20%;
+}
 
-  .views {
-    display: flex;
-    width: 50%;
-    height: 100%;
-    align-items: center;
-  }
+.views {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
 
-  .views-text {
-    margin-left: 5px;
-    color: #bababa;
-    font-size: 10px;
-  }
-  
-  .views-icon {
-    display: inline-block;
-    height: 100%;
-    width: 15%;
-  }
+.views-text {
+  margin-left: 5px;
+  color: #bababa;
+  font-size: 10px;
+}
 
-  .date {
-    display: flex;
-    width: 50%;
-    height: 100%;
-    align-items: center;
-    justify-content:flex-end;
-  }
+.views-icon {
+  display: inline-block;
+  height: 100%;
+  width: 15%;
+}
 
-  .date-icon {
-    width: 15%;
-    height: 100%;
-  }
+.date {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content:flex-end;
+}
 
-  .date-text {
-    padding-left: 5px;
-    font-size: 10px;
-    color: #bababa;
-  }
+.date-icon {
+  width: 15%;
+  height: 100%;
+}
 
-  .image {
-    width: 35%;
-    height: 100%;
-    background-color: black;
-  }
+.date-text {
+  padding-left: 5px;
+  font-size: 10px;
+  color: #bababa;
+}
 
-  .news-item img {
-    width: 100%;
-    height: 100%;
-  }
+.image {
+  width: 35%;
+  height: 100%;
+  background-color: black;
+}
+
+.news-item img {
+  width: 100%;
+  height: 100%;
+}
 </style>
