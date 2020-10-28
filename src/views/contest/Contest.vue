@@ -5,7 +5,7 @@
     </Navbar>
     <Scroll class="wrapper" ref="scroll"
             :probeType="3" :pullUpLoad="true"
-            :content="ContestGame.list"
+            :listLengthStatus="listLengthStatus"
             @pullingUps="getContestsGame">
       <ContestContent :ContestGame="ContestGame.list"/>
     </Scroll>
@@ -23,7 +23,8 @@
     data() {
       return {
         ContestGame: {page: 0, list: []},
-        backTopState: false
+        backTopState: false,
+        listLengthStatus: false
       }
     },
 
@@ -43,6 +44,7 @@
         await getContestsGame(page)
         .then(res=>{
           this.ContestGame.list.push(...res.results)
+          this.listLengthStatus=!this.listLengthStatus
           this.ContestGame.page += 1})
         .catch(err=>{console.log(err)})
         this.$refs.scroll.finishPullUpHandler()

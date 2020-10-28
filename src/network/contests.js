@@ -8,3 +8,12 @@ export function getContestsGame(page) {
     }
   })
 }
+
+export function getCommentary(game_id) {
+  return apiRequest({
+    url: '/contests/game/commentary',
+    params: {
+      game: game_id
+    }
+  })
+}

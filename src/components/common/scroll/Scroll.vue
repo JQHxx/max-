@@ -26,11 +26,9 @@ export default {
       type: Boolean,
       default: false
     },
-    content: {
-      type: Array,
-      default: () => {
-        return []
-      }
+    listLengthStatus: {
+      type: Boolean,
+      default: false
     },
   },
   data() {
@@ -79,9 +77,11 @@ export default {
     }
   },
   watch: {
-    content() {
-      // 零延时refresh数据还未加载完毕会记录错误的位置
-      setTimeout(this.refresh, 20)
+    listLengthStatus: {
+      // 零延时数据还未加载完毕就refresh会记录错误的位置
+      handler() {
+        setTimeout(this.refresh, 20)
+      }
     }
   }
 }

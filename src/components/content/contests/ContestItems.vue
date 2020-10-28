@@ -46,17 +46,27 @@
       </div>
     </div>
   </div>
-  <div class="commentary" v-show="commentary">
-    赛况
+  <div class="commentarys" v-show="commentaryOpen">
+    <div class="commentary-item" v-for="(item, key) in commentaryItem" :key=key>
+      <div class="cdate">{{item.timestamp | timestampToDetail}}</div>
+      <div class="cstory">{{item.story}}</div>
+    </div>
   </div>
 </div>
 </template>
 
 <script>
+import {getCommentary} from "../../../network/contests"
+import {timestampToDetail} from "../../../utils/utils"
+
 export default {
   name: "NewsItems",
 
   props: {
+    game_id: {
+      type: Number,
+      default() {return 0}
+    },
     game_status: {
       type: Number,
       default() {return 2}
@@ -69,13 +79,19 @@ export default {
 
   data() {
     return {
-      commentary: false
+      commentaryOpen: false,
+      commentaryItem: Array
     }
   },
 
   methods: {
     itemclick() {
-      this.commentary = !this.commentary
+      this.commentaryOpen = !this.commentaryOpen
+      if (this.commentaryOpen) {
+        console.log("dianle")
+        getCommentary(this.game_id)
+        .then(res=>{this.commentaryItem = res.results})
+      }
     }
   }
 }
@@ -90,16 +106,6 @@ export default {
   border-color: #bfbfbfbf;
   height: 84px;
   width: 100%;
-}
-
-.commentary {
-  width: 100%;
-  background-color: #bfbfbfbf;
-}
-
-.group {
-  height: 100%;
-  flex: 1;
 }
 
 .team-cover {
@@ -143,6 +149,10 @@ export default {
   color: #bfbfbfbf;
 }
 
+.group {
+  height: 100%;
+  flex: 1;
+}
 .contests-name {
   height: 30%;
   width: 100%;
@@ -150,7 +160,6 @@ export default {
   text-align: center;
   color: #babababa;
 }
-
 .ongoing {
   height: 70%;
   width: 100%;
@@ -158,7 +167,6 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 .ongoing-text {
   height: 20px;
   width: 50%;
@@ -167,5 +175,20 @@ export default {
   color: white;
   text-align: center;
   font-size: 15px;
+}
+
+.commentarys {
+  padding: 10px 20px 10px 20px;
+  background-color: #bfbfbfbf;
+}
+.commentary-item {
+  display: flex;
+  font-size: 12px;
+}
+.cdate {
+  width: 30%;
+}
+.cstory {
+  width: 70%;
 }
 </style>

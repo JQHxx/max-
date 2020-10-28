@@ -31,6 +31,11 @@ export function timestampToDetail(timestamp) {
   let rh = r_date.getHours();
   let rmi = r_date.getMinutes();
 
+  if (rm<10) {rm = '0'+rm}
+  if (rd<10) {rd = '0'+rd}
+  if (rh<10) {rh = '0'+rh}
+  if (rmi<10) {rmi = '0'+rmi}
+
   return ry+"-"+rm+"-"+rd+" "+rh+":"+rmi
 }
 
