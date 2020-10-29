@@ -5,9 +5,13 @@
           ref="scroll"
           :probeType="3" :pullUpLoad="true"
           @pullingUps="getComments">
-    <div class="body">
-      <DetailBody :item="item"/>
-    </div>
+    <DetailCover :NewsCover="NewsCover"/>
+    <AuthorInfo class="author-info">
+      <Portrait slot="left" :portrait="Author.portrait"/>
+      <NickName slot="center" :nickname="Author.nickname"/>
+      <Date slot="right" :date="item.released_timestamp"/>
+    </AuthorInfo>
+    <DetailBody class="detail-body" :NewsBody="NewsBody"/>
     <BottomItem/>
   </Scroll>
   <CommentBox/>
@@ -17,10 +21,16 @@
 <script>
 import DetailNavbar from "./detailcomps/DetailNavbar"
 import DetailBody from "./detailcomps/DetailBody"
+import DetailCover from "./detailcomps/DetailCover"
 import Scroll from "../../common/scroll/Scroll"
 import BottomItem from "../bottemitem/BottemItem"
 import CommentBox from "../commentbox/CommentBox"
+import AuthorInfo from "../authorinfo/AuthorInfo"
+import Portrait from "../authorinfo/Portrait"
+import NickName from "../authorinfo/NickName"
+import Date from "../authorinfo/Date"
 import {getFindDetail} from "../../../network/detail"
+import {NewsCoverC, NewsBodyC, AuthorinfoC} from "./constructor"
 
 export default {
   name: "Detail",
@@ -28,25 +38,34 @@ export default {
     return {
       id: Number,
       item: {
-        type: Object,
         default() {return {}}
       },
+      NewsCover: Object,
+      NewsBody: Object,
+      Author: Object,
     }
   },
 
   components: {
     DetailNavbar,
+    DetailCover,
     DetailBody,
     Scroll,
     BottomItem,
-    CommentBox
+    CommentBox,
+    AuthorInfo,
+    Portrait,
+    NickName,
+    Date
   },
 
   created() {
     this.id = this.$route.query.id
-
     getFindDetail(this.id).then(res=>{
       this.item = res.results[0]
+      this.NewsCover = new NewsCoverC(this.item)
+      this.NewsBody = new NewsBodyC(this.item)
+      this.Author = new AuthorinfoC(this.item)
     })
   },
   methods: {
@@ -76,9 +95,14 @@ export default {
   width: 100%;
 }
 
-/* 父元素使用relative很好的解决了子元素absolute脱离文档解构的问题 */
-.body {
-  position: relative;
-  width: 100%;
+.author-info {
+  padding: 0 20px 0 20px;
+  height: 45px;
+  display: flex;
 }
+
+.detail-body {
+  padding: 0 20px 20px 20px;
+}
+/* 父元素使用relative很好的解决了子元素absolute脱离文档结构的问题 */
 </style>

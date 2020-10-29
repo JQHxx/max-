@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .post {
     width: 100%;
     flex-shrink: 0;

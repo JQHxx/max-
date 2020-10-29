@@ -88,7 +88,6 @@ export default {
     itemclick() {
       this.commentaryOpen = !this.commentaryOpen
       if (this.commentaryOpen) {
-        console.log("dianle")
         getCommentary(this.game_id)
         .then(res=>{this.commentaryItem = res.results})
       }
@@ -183,6 +182,7 @@ export default {
 }
 .commentary-item {
   display: flex;
+  align-items: baseline;
   font-size: 12px;
 }
 .cdate {

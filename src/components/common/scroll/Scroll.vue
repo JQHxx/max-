@@ -12,6 +12,7 @@
 // 1.导入better-scroll
 import BScroll from '@better-scroll/core'
 import Pullup from '@better-scroll/pull-up'
+import PullDown from '@better-scroll/pull-down'
 
 BScroll.use(Pullup)
 
@@ -80,8 +81,10 @@ export default {
     listLengthStatus: {
       // 零延时数据还未加载完毕就refresh会记录错误的位置
       handler() {
-        setTimeout(this.refresh, 20)
-      }
+        setTimeout(this.refresh, 200)
+        console.log("用了")
+      },
+      deep: true
     }
   }
 }

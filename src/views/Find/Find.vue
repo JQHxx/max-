@@ -7,7 +7,7 @@
   </Navbar>
   <Scroll class="wrapper" ref="scroll"
           :probeType="3" :pullUpLoad="true"
-          :content="FindNews.list"
+          :listLengthStatus="listLengthStatus"
           @pullingUps="getFindNews"
           @scrollPostion="isShowBackTop">
     <FindSwiper :RotationItems="RotationItems"/>
@@ -49,7 +49,8 @@ export default {
     return {
       RotationItems: [],
       FindNews: {page: 0, list: []},
-      backTopState: false
+      backTopState: false,
+      listLengthStatus: false
     }
   },
   computed: {},
@@ -65,6 +66,7 @@ export default {
       // await等待语句完成
       await getFindNews(page)
       .then(res=>{
+        this.listLengthStatus = !this.listLengthStatus
         this.FindNews.list.push(...res.results)
         this.FindNews.page += 1
       })

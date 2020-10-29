@@ -1,50 +1,36 @@
 <template>
-<div>
-  <div class="portrait">
-    <img :src="author_info.portrait" alt="">
-  </div>
-  <div class="nickname">{{author_info.nickname}}</div>
+<div id="author-info">
+  <div class="left"><slot name="left"></slot></div>
+  <div class="center"><slot name="center"></slot></div>
+  <div class="right"><slot name="right"></slot></div>
 </div>
 </template>
 
 <script>
-import {timestampToDetail} from "../../../utils/utils"
-
 export default {
-  props: {
-    author_info: {
-      type: Object,
-      default() {return {}}
-    }
-  },
-  mounted() {
-    /*  */
-  },
-  methods: {
-    /*  */
-  }
+  name: "AuthorInfo"
 }
 </script>
 
 <style scoped>
-.portrait {
-  height: 100%;
+.right {
+  height: 45px;
+  width: auto;
   display: flex;
   align-items: center;
 }
 
-.portrait img {
-  height: 30px;
-  width: 30px;
-  border-radius: 15px;
-
+.left {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
 }
 
-.nickname {
+.center {
+  height: 45px;
   flex: 1;
-  margin-left: 10px;
   display: flex;
   align-items: center;
-  font-size: 12px;
 }
 </style>

@@ -7,8 +7,8 @@
       <div slot="views">{{item.views}}</div>
       <div slot="date">{{item.released_timestamp | timestampToTime}}</div>
     </NewsItems>
-    <BottomItem/>
   </News>
+  <BottomItem/>
 </div>
 </template>
 
