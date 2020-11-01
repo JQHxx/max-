@@ -10,35 +10,35 @@
       <CommunityTopic/>
     </TabContent>
   </div>
-</template>>
+</template>
 
 <script>
-  import Navbar from "../../components/common/navbar/Navbar"
-  import NavbarLogin from "../../components/common/navbar/NavbarLogin"
-  import NavbarLog from "../../components/common/navbar/NavbarLog"
-  import NavbarSearch from "../../components/common/navbar/NavbarSeach"
-  import TabContent from "../../components/content/tabcontent/TabContent"
-  import CommunityTopic from "../../views/community/communitycomps/CommunityTopic"
-  import CommunityPost from "../../views/community/communitycomps/CommunityPost"
+import Navbar from "../../components/common/navbar/Navbar"
+import NavbarLogin from "../../components/common/navbar/NavbarLogin"
+import NavbarLog from "../../components/common/navbar/NavbarLog"
+import NavbarSearch from "../../components/common/navbar/NavbarSeach"
+import TabContent from "../../components/content/tabcontent/TabContent"
+import CommunityTopic from "../../views/community/communitycomps/CommunityTopic"
+import CommunityPost from "../../views/community/communitycomps/CommunityPost"
 
-  export default {
-    name: "Community",
-    data() {
-      return {
-        tabTitles: ['帖子', '话题', '多标签测试']
-      }
-    },
-    components: {
-      Navbar,
-      NavbarLogin,
-      NavbarLog,
-      NavbarSearch,
-      TabContent,
-      CommunityTopic,
-      CommunityPost
+export default {
+  name: "Community",
+  data() {
+    return {
+      tabTitles: ['帖子', '话题']
     }
+  },
+  components: {
+    Navbar,
+    NavbarLogin,
+    NavbarLog,
+    NavbarSearch,
+    TabContent,
+    CommunityTopic,
+    CommunityPost
   }
+}
 </script>
 
-<style>
-</style>>
+<style scoped>
+</style>

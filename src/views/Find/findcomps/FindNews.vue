@@ -15,7 +15,7 @@
 <script>
 import NewsItems from "../../../components/content/news/NewsItems"
 import News from "../../../components/content/news/News"
-import BottomItem from "../../../components/content/bottemitem/BottemItem"
+import BottomItem from "../../../components/content/bottemitem/BottomItem"
 
 export default {
   name: "FindNews",

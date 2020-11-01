@@ -45,6 +45,7 @@ export default {
   height: 25px;
   border: 2px solid #ced4da;
   border-radius: 8px;
+  padding-left: 10px;
 }
 
 input[type="text"]:focus {border-radius: 8px;border:2px solid blue; outline: none;}

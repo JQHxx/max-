@@ -102,7 +102,7 @@ export default {
   border-top-style: solid;
   border-bottom-style: solid;
   border-width: 1px;
-  border-color: #bfbfbfbf;
+  border-color: #bfbfbf;
   height: 84px;
   width: 100%;
 }
@@ -134,7 +134,7 @@ export default {
   height: 70%;
   width: 100%;
   font-size: 10px;
-  color: #bfbfbfbf;
+  color: #bababa;
   text-align: center;
 }
 
@@ -145,7 +145,7 @@ export default {
   height: 70%;
   width: 100%;
   font-size: 20px;
-  color: #bfbfbfbf;
+  color: #bfbfbf;
 }
 
 .group {
@@ -157,7 +157,7 @@ export default {
   width: 100%;
   font-size: 10px;
   text-align: center;
-  color: #babababa;
+  color: #bababa;
 }
 .ongoing {
   height: 70%;
@@ -178,7 +178,7 @@ export default {
 
 .commentarys {
   padding: 10px 20px 10px 20px;
-  background-color: #bfbfbfbf;
+  background-color: #bfbfbf;
 }
 .commentary-item {
   display: flex;
@@ -186,9 +186,9 @@ export default {
   font-size: 12px;
 }
 .cdate {
-  width: 30%;
+  width: 35%;
 }
 .cstory {
-  width: 70%;
+  width: 65%;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div id="container">
+  <div id="post-list">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "PostContainer"
+  name: "PostList"
 }
 </script>
 

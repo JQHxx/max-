@@ -13,9 +13,9 @@
     </div>
   </div>
   <div class="tab-content"
-    @touchstart="touchStart"
-    @touchmove="touchMove"
     @touchend="touchEnd">
+    <!-- @touchstart="touchStart"
+    @touchmove="touchMove" -->
     <slot></slot>
   </div>
 </div>

@@ -9,6 +9,7 @@ const Community = () => import("../views/community/Community")
 const Find = () => import("../views/find/Find")
 const Contest = () => import("../views/contest/Contest")
 const Detail = () => import("../components/content/detail/Detail")
+const Post = () => import("../components/content/post/Post")
 
 const routes = [
   {
@@ -26,7 +27,10 @@ const routes = [
   {
     path: '/data',
     name: 'Data',
-    component: Data
+    component: Data,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/community',
@@ -41,7 +45,7 @@ const routes = [
     name: 'Find',
     component: Find,
     meta: {
-      keepAlive: false
+      keepAlive: true
     }
   },
   {
@@ -57,7 +61,15 @@ const routes = [
     name: 'Detail',
     component: Detail,
     meta: {
-      keepAlive: true
+      keepAlive: false
+    }
+  },
+  {
+    path: '/post',
+    name: 'Post',
+    component: Post,
+    meta: {
+      keepAlive: false
     }
   }
 ]

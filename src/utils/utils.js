@@ -1,5 +1,5 @@
 export function timestampToTime(timestamp) {
-  //时间戳为10位需*1000，时间戳为13位的话不需乘1000，且10位无秒数
+  //时间戳为10位需*1000，时间戳为13位的话不需乘1000，因为js，java等使用整数位表示毫秒数转化回js外的时间戳除以1000
   let r_date = new Date(timestamp * 1000);
   let ry = r_date.getFullYear();
   // 月份从0开始
@@ -30,12 +30,14 @@ export function timestampToDetail(timestamp) {
   let rd = r_date.getDate();
   let rh = r_date.getHours();
   let rmi = r_date.getMinutes();
+  let rsec = r_date.getSeconds();
 
   if (rm<10) {rm = '0'+rm}
   if (rd<10) {rd = '0'+rd}
   if (rh<10) {rh = '0'+rh}
   if (rmi<10) {rmi = '0'+rmi}
+  if (rsec<10) {rsec = '0'+rsec}
 
-  return ry+"-"+rm+"-"+rd+" "+rh+":"+rmi
+  return ry+"-"+rm+"-"+rd+" "+rh+":"+rmi+":"+rsec
 }
 

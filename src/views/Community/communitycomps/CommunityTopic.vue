@@ -14,6 +14,5 @@ export default {
   .topic {
     width: 100%;
     flex-shrink: 0;
-    position: relative;
   }
 </style>

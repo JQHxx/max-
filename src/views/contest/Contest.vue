@@ -13,44 +13,44 @@
 </template>
 
 <script>
-  import Navbar from "../../components/common/navbar/Navbar"
-  import Scroll from "../../components/common/scroll/Scroll"
-  import ContestContent from "./contestcamps/ContestContent"
-  import {getContestsGame} from "../../network/contests"
+import Navbar from "../../components/common/navbar/Navbar"
+import Scroll from "../../components/common/scroll/Scroll"
+import ContestContent from "./contestcamps/ContestContent"
+import {getContestsGame} from "../../network/contests"
 
-  export default {
-    name: "Data",
-    data() {
-      return {
-        ContestGame: {page: 0, list: []},
-        backTopState: false,
-        listLengthStatus: false
-      }
-    },
+export default {
+  name: "Data",
+  data() {
+    return {
+      ContestGame: {page: 0, list: []},
+      backTopState: false,
+      listLengthStatus: false
+    }
+  },
 
-    components: {
-      Navbar,
-      Scroll,
-      ContestContent
-    },
+  components: {
+    Navbar,
+    Scroll,
+    ContestContent
+  },
 
-    created() {
-      this.getContestsGame()
-    },
+  created() {
+    this.getContestsGame()
+  },
 
-    methods: {
-      async getContestsGame() {
-        const page = this.ContestGame.page+1
-        await getContestsGame(page)
-        .then(res=>{
-          this.ContestGame.list.push(...res.results)
-          this.listLengthStatus=!this.listLengthStatus
-          this.ContestGame.page += 1})
-        .catch(err=>{console.log(err)})
-        this.$refs.scroll.finishPullUpHandler()
-      }
+  methods: {
+    async getContestsGame() {
+      const page = this.ContestGame.page+1
+      await getContestsGame(page)
+      .then(res=>{
+        this.ContestGame.list.push(...res.results)
+        this.listLengthStatus=!this.listLengthStatus
+        this.ContestGame.page += 1})
+      .catch(err=>{console.log(err)})
+      this.$refs.scroll.finishPullUpHandler()
     }
   }
+}
 </script>
 
 <style scoped>

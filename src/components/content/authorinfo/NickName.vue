@@ -22,6 +22,6 @@ export default {
 
 <style scoped>
 .container {
-  font-size: 10%;
+  font-size: 12px;
 }
 </style>

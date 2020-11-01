@@ -1,8 +1,8 @@
 <template>
-  <div class="detail-navbar">
+  <div class="navbar">
     <Navbar>
       <BackRoute slot="left"/>
-      <div class="detail-logo" slot="center">MAX- 新闻</div>
+      <div class="logo" slot="center">主题帖</div>
       <Share slot="right"/>
     </Navbar>
   </div>
@@ -12,9 +12,10 @@
 import Navbar from "../../../common/navbar/Navbar"
 import BackRoute from "../../../common/backroute/BackRoute"
 import Share from "../../../common/share/Share"
+import {AuthorinfoC} from "../../../../utils/utils"
 
 export default {
-  name: "DetailNavbar",
+  name: "PostNavBar",
   components: {
     Navbar,
     BackRoute,
@@ -24,13 +25,13 @@ export default {
 </script>
 
 <style scoped>
-.detail-navbar{
+.navbar{
   position: relative;
   height: 45px;
   width: 100%;
 }
 
-.detail-logo {
+.logo {
   height: 100%;
   width: 100%;
   color: white;

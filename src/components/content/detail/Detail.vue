@@ -23,14 +23,14 @@ import DetailNavbar from "./detailcomps/DetailNavbar"
 import DetailBody from "./detailcomps/DetailBody"
 import DetailCover from "./detailcomps/DetailCover"
 import Scroll from "../../common/scroll/Scroll"
-import BottomItem from "../bottemitem/BottemItem"
+import BottomItem from "../bottemitem/BottomItem"
 import CommentBox from "../commentbox/CommentBox"
 import AuthorInfo from "../authorinfo/AuthorInfo"
 import Portrait from "../authorinfo/Portrait"
 import NickName from "../authorinfo/NickName"
 import Date from "../authorinfo/Date"
 import {getFindDetail} from "../../../network/detail"
-import {NewsCoverC, NewsBodyC, AuthorinfoC} from "./constructor"
+import {NewsCoverC, NewsBodyC, AuthorinfoC} from "../../../utils/constructor"
 
 export default {
   name: "Detail",
@@ -58,7 +58,6 @@ export default {
     NickName,
     Date
   },
-
   created() {
     this.id = this.$route.query.id
     getFindDetail(this.id).then(res=>{
@@ -91,7 +90,7 @@ export default {
 .wrapper{
   position: absolute;
   top: 45px;
-  bottom: 45px;
+  bottom: 0px;
   width: 100%;
 }
 

@@ -17,7 +17,7 @@
 <script>
 import GameItem from "../gamecontent/GameItem"
 import GameContainer from "../gamecontent/GameContainer"
-import BottomItem from "../../../components/content/bottemitem/BottemItem"
+import BottomItem from "../../../components/content/bottemitem/BottomItem"
 
 export default {
   name: "ContestContent",
