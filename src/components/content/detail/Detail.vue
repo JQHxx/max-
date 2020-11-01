@@ -80,9 +80,8 @@ export default {
   position: relative;
   top: 0px;
   width: 100%;
-  display: list-item;
   z-index: 999;
-  background: #ffffff;
+  background: #fff;
   height: 100%;
   overflow: hidden;
 }

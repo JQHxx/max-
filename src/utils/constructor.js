@@ -17,3 +17,17 @@ export class AuthorinfoC {
     this.portrait = item.author.portrait
   }
 }
+
+export class PostCategoryC {
+  constructor(item) {
+    this.id = item.category.id
+    this.name = item.category.name
+  }
+}
+
+export class PostBodyC {
+  constructor(item) {
+    this.title = item.title
+    this.text = item.text
+  }
+}

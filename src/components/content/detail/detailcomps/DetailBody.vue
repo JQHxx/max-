@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="body-text">
-      {{NewsBody.text}}
-    </div>
+  <div class="body-text">
+    {{NewsBody.text}}
   </div>
 </template>
 
