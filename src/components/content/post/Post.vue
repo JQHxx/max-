@@ -9,10 +9,7 @@
       <NickName slot="center" :nickname="Author.nickname"/>
       <div slot="right">
         <div class="category">
-          <img v-if="Category.id==1" src="../../../assets/img/community/c4.png" alt="">
-          <img v-else-if="Category.id==2" src="../../../assets/img/community/c3.jpg" alt="">
-          <img v-else-if="Category.id==3" src="../../../assets/img/community/c1.jpg" alt="">
-          <img v-else src="../../../assets/img/community/c2.jpg" slot="cimage" alt="">
+          <img :src="Category.category_icon" alt="">
           <div class="category-text">{{Category.name}}</div>
         </div>
         <Date :date="item.modified_time_timestamp"/>
@@ -49,7 +46,7 @@ export default {
     Portrait,
     NickName,
     Date,
-    PostBody
+    PostBody,
   },
   data() {
     return {
@@ -57,7 +54,7 @@ export default {
       item: Object,
       Author: Object,
       Category: Object,
-      Body: Object
+      Body: Object,
     }
   },
   created() {
@@ -105,7 +102,8 @@ export default {
   font-size: 12px;
 }
 .category img{
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
+  padding-right: 5px;
 }
 </style>

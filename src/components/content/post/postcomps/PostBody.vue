@@ -32,7 +32,7 @@ export default {
 
 
 .text {
-  padding: 0 10px 0 10px;
+  padding: 0 10px 10px 10px;
   text-align: justify;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

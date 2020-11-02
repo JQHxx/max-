@@ -3,9 +3,13 @@
     <!-- 另一种保存当前阅读位置的方法，使用activated和deactivated生命周期函数，
       首先由scrollHandler获取的position动态存储在父组件，当deactivated触发离开页面时
       记录当前位置，activated触发进入页面时，调用scrollTo前往当前页面 -->
-    <keep-alive exclude="Post, Detail">
+    <!-- <keep-alive exclude="Post, Detail">
       <router-view></router-view>
+    </keep-alive> -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"/>
     </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"/>
     <MaxTabBar/>
   </div>
 </template>

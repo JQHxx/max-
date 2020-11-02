@@ -17,3 +17,9 @@ export function getPostDetail(id) {
     }
   })
 }
+
+export function getCategoryList() {
+  return apiRequest({
+    url: "/community/category"
+  })
+}

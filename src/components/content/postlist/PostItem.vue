@@ -90,7 +90,7 @@ export default {
   justify-content: end;
 }
 .likes img {
-  width: 12px;
+  width: 15px;
   padding-right: 5px;
 }
 </style>

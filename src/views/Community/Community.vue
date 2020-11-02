@@ -5,7 +5,7 @@
       <NavbarLog slot="center"/>
       <NavbarSearch slot="right"/>
     </Navbar>
-    <TabContent :tabTitles="tabTitles">
+    <TabContent :tabTitles="tabTitles" ref="content">
       <CommunityPost/>
       <CommunityTopic/>
     </TabContent>
@@ -23,11 +23,6 @@ import CommunityPost from "../../views/community/communitycomps/CommunityPost"
 
 export default {
   name: "Community",
-  data() {
-    return {
-      tabTitles: ['帖子', '话题']
-    }
-  },
   components: {
     Navbar,
     NavbarLogin,
@@ -35,7 +30,21 @@ export default {
     NavbarSearch,
     TabContent,
     CommunityTopic,
-    CommunityPost
+    CommunityPost,
+  },
+  data() {
+    return {
+      tabTitles: ['帖子', '话题']
+    }
+  },
+  mounted() {
+    this.bodyHeight()
+  },
+  methods: {
+    bodyHeight() {
+      let c = this.$refs.content.$el.getElementsByClassName("tab-content")[0]
+      c.style.height = `${this.$store.state.screenHeight-45*2}px`;
+    }
   }
 }
 </script>

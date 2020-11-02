@@ -6,9 +6,11 @@
     <Scroll class="wrapper" ref="scroll"
             :probeType="3" :pullUpLoad="true"
             :listLengthStatus="listLengthStatus"
-            @pullingUps="getContestsGame">
+            @pullingUps="getContestsGame"
+            @scrollPostion="isShowBackTop">
       <ContestContent :ContestGame="ContestGame.list"/>
     </Scroll>
+    <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
   </div>
 </template>
 
@@ -16,6 +18,7 @@
 import Navbar from "../../components/common/navbar/Navbar"
 import Scroll from "../../components/common/scroll/Scroll"
 import ContestContent from "./contestcamps/ContestContent"
+import BackTop from "../../components/common/backtop/Backtop"
 import {getContestsGame} from "../../network/contests"
 
 export default {
@@ -31,13 +34,13 @@ export default {
   components: {
     Navbar,
     Scroll,
-    ContestContent
+    ContestContent,
+    BackTop
   },
 
   created() {
     this.getContestsGame()
   },
-
   methods: {
     async getContestsGame() {
       const page = this.ContestGame.page+1
@@ -48,7 +51,13 @@ export default {
         this.ContestGame.page += 1})
       .catch(err=>{console.log(err)})
       this.$refs.scroll.finishPullUpHandler()
-    }
+    },
+    handleBackTop() {
+      this.$refs.scroll.scrollTo(0, 0, 300)
+    },
+    isShowBackTop(position) {
+      this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
+    },
   }
 }
 </script>
@@ -70,5 +79,13 @@ export default {
   color: white;
   justify-content: center;
   align-items: center;
+}
+
+.backtop {
+  position: fixed;
+  right: 8px;
+  bottom: 55px;
+  width: 45px;
+  height: 45px;
 }
 </style>

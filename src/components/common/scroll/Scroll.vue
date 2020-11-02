@@ -1,6 +1,6 @@
 <template>
 <!-- ref位于dom上通过this.$refs.scroll获取的是节点，位于组件模板标签上获取的是vue实例，
-可以通过this.$refs.scroll.message获取数据 -->
+可以通过this.$refs.scroll.message获取数据或方法，也可通过this.$refs.scroll.$el获取dom元素 -->
 <div ref="scroll">
   <div class="scroll">
     <slot></slot>

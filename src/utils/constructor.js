@@ -22,6 +22,7 @@ export class PostCategoryC {
   constructor(item) {
     this.id = item.category.id
     this.name = item.category.name
+    this.category_icon = item.category.category_icon
   }
 }
 

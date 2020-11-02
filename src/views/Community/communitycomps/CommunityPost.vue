@@ -1,8 +1,9 @@
 <template>
-  <div class="body" ref="body">
+  <div class="body">
     <Scroll class="wrapper" ref="scroll"
             :probeType="3" :pullUpLoad="true"
             :listLengthStatus="listLengthStatus"
+            @scrollPostion="isShowBackTop"
             @pullingUps="getPostList">
       <PostList>
         <PostItem v-for="(item, key) in PostList.list" :key=key :PostId="item.id">
@@ -12,17 +13,15 @@
             <Date slot="right" :date="item.modified_time_timestamp"/>
           </AuthorInfo>
           <div slot="title">{{item.title}}</div>
-          <div slot="abstract">{{item.text.length>56 ? item.text.slice(0, 57)+"..." : item.text}}</div>          
+          <div slot="abstract">{{item.text.length>54 ? item.text.slice(0, 55)+"..." : item.text}}</div>          
           <div slot="likes">{{item.likes}}</div>
-          <img v-if="item.category.id==1" src="../../../assets/img/community/c4.png" slot="cimage" alt="">
-          <img v-else-if="item.category.id==2" src="../../../assets/img/community/c3.jpg" slot="cimage" alt="">
-          <img v-else-if="item.category.id==3" src="../../../assets/img/community/c1.jpg" slot="cimage" alt="">
-          <img v-else src="../../../assets/img/community/c2.jpg" slot="cimage" alt="">
+          <img :src="item.category.category_icon" slot="cimage" alt="">
           <div slot="category">{{item.category.name}}</div>
         </PostItem>
       </PostList>
       <BottomItem/>
     </Scroll>
+    <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
   </div>
 </template>
 
@@ -35,6 +34,7 @@ import Portrait from "../../../components/content/authorinfo/Portrait"
 import NickName from "../../../components/content/authorinfo/NickName"
 import Date from "../../../components/content/authorinfo/Date"
 import BottomItem from "../../../components/content/bottemitem/BottomItem"
+import BackTop from "../../../components/common/backtop/Backtop"
 import {getPostList} from "../../../network/community"
 
 export default {
@@ -47,19 +47,18 @@ export default {
     Portrait,
     NickName,
     Date,
-    BottomItem
+    BottomItem,
+    BackTop
   },
   data() {
     return {
       PostList: {page: 0, list:[]},
-      listLengthStatus: false
+      listLengthStatus: false,
+      backTopState: Boolean
     }
   },
   created() {
     this.getPostList()
-  },
-  mounted() {
-    this.bodyHeight()
   },
   methods: {
     async getPostList() {
@@ -72,16 +71,20 @@ export default {
       .catch(err=>{console.log(err)})
       this.$refs.scroll.finishPullUpHandler()
     },
-    bodyHeight() {
-      this.$refs.body.style.height = `${this.$store.state.screenHeight-45*2}px`
+    handleBackTop() {
+      this.$refs.scroll.scrollTo(0, 0, 300)
+    },
+    isShowBackTop(position) {
+      this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
     }
   }
 }
 </script>
-this.$store.state.
+
 <style scoped>
 .body {
   width: 100%;
+  height: 100%;
   background-color: #fff;
   flex-shrink: 0;
   position: relative;
@@ -93,5 +96,13 @@ this.$store.state.
   top: 0px;
   bottom: 0px;
   width: 100%;
+}
+
+.backtop {
+  position: fixed;
+  right: 8px;
+  bottom: 55px;
+  width: 45px;
+  height: 45px;
 }
 </style>
