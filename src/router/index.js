@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { getCategoryList } from '../network/community'
 
 Vue.use(VueRouter)
 
@@ -10,6 +11,7 @@ const Find = () => import("../views/find/Find")
 const Contest = () => import("../views/contest/Contest")
 const Detail = () => import("../components/content/detail/Detail")
 const Post = () => import("../components/content/post/Post")
+const Category = () => import("../components/content/categorylist/CategorySubp")
 
 const routes = [
   {
@@ -68,6 +70,14 @@ const routes = [
     path: '/post',
     name: 'Post',
     component: Post,
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/category',
+    name: 'Category',
+    component: Category,
     meta: {
       keepAlive: false
     }

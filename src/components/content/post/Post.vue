@@ -10,7 +10,7 @@
       <div slot="right">
         <div class="category">
           <img :src="Category.category_icon" alt="">
-          <div class="category-text">{{Category.name}}</div>
+          <div class="category-text">{{Category.name.slice(4)}}</div>
         </div>
         <Date :date="item.modified_time_timestamp"/>
       </div>

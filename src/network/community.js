@@ -23,3 +23,13 @@ export function getCategoryList() {
     url: "/community/category"
   })
 }
+
+export function getCategorySubPList(id, page) {
+  return apiRequest({
+    url: "/community/post",
+    params: {
+      category: id,
+      page: page
+    }
+  })
+}

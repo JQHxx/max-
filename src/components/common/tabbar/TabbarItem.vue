@@ -52,7 +52,8 @@ export default {
 }
 
 .item_text {
-  color: blue
+  color: blue;
+  font-size: 8px;
 }
 
 .tabbar-item img {

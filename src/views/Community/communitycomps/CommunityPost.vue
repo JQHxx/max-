@@ -16,7 +16,7 @@
           <div slot="abstract">{{item.text.length>54 ? item.text.slice(0, 55)+"..." : item.text}}</div>          
           <div slot="likes">{{item.likes}}</div>
           <img :src="item.category.category_icon" slot="cimage" alt="">
-          <div slot="category">{{item.category.name}}</div>
+          <div slot="category">{{item.category.name.slice(4)}}</div>
         </PostItem>
       </PostList>
       <BottomItem/>
@@ -54,7 +54,7 @@ export default {
     return {
       PostList: {page: 0, list:[]},
       listLengthStatus: false,
-      backTopState: Boolean
+      backTopState: false
     }
   },
   created() {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CategoryList from "../../../components/content/categorylist/CategoryList"
+import CategoryList from "../../../components/common/categorylist/CategoryList"
 import {getCategoryList} from "../../../network/community"
 
 export default {
