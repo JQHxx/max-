@@ -6,11 +6,6 @@
     <img slot="item-icon" src="../../../assets/img/tabbar/user.svg" alt="">
     <span slot="item-text">我的</span>
   </TabbarItem>
-  <TabbarItem path="/data">
-    <img slot="item-icon-fill" src="../../../assets/img/tabbar/data-fill.svg" alt="">
-    <img slot="item-icon" src="../../../assets/img/tabbar/data.svg" alt="">
-    <span slot="item-text">数据</span>
-  </TabbarItem>
   <TabbarItem path="/contest">
     <img slot="item-icon-fill" src="../../../assets/img/tabbar/contest-fill.svg" alt="">
     <img slot="item-icon" src="../../../assets/img/tabbar/contest.svg" alt="">

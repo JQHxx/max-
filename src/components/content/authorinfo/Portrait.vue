@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="itemclick">
+  <div class="portrait" @click="itemclick">
     <img :src="portrait" alt="">
   </div>
 </template>
@@ -21,13 +21,13 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.portrait {
   width: 80%;
   height: 80%;
   border-radius: 50%;
   overflow: hidden;
 }
-.container img{
+.portrait img{
   width: 100%;
   height: 100%;
 }

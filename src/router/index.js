@@ -5,13 +5,14 @@ import { getCategoryList } from '../network/community'
 Vue.use(VueRouter)
 
 const User = () => import("../views/user/User")
-const Data = () => import("../views/data/Data")
 const Community = () => import("../views/community/Community")
 const Find = () => import("../views/find/Find")
 const Contest = () => import("../views/contest/Contest")
 const Detail = () => import("../components/content/detail/Detail")
 const Post = () => import("../components/content/post/Post")
 const Category = () => import("../components/content/categorylist/CategorySubp")
+const Login = () => import("../components/common/loginregister/Login")
+const Register = () => import("../components/common/loginregister/Register")
 
 const routes = [
   {
@@ -22,14 +23,6 @@ const routes = [
     path: '/user',
     name: 'User',
     component: User,
-    meta: {
-      keepAlive: true
-    }
-  },
-  {
-    path: '/data',
-    name: 'Data',
-    component: Data,
     meta: {
       keepAlive: true
     }
@@ -81,7 +74,23 @@ const routes = [
     meta: {
       keepAlive: false
     }
-  }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register,
+    meta: {
+      keepAlive: false
+    }
+  },
 ]
 
 const router = new VueRouter({

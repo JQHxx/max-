@@ -33,3 +33,12 @@ export function getCategorySubPList(id, page) {
     }
   })
 }
+
+export function getCategoryInfo(id) {
+  return apiRequest({
+    url: "/community/category",
+    params: {
+      id: id,
+    }
+  })
+}

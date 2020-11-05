@@ -13,16 +13,19 @@ export default {
 </script>
 
 <style>
+.contain-n {
+  position: relative;
+}
+
 #navbar {
   display: flex;
   background-color: black;
-  /* 父级垂直居中 */
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   height: 45px;
-  z-index: 999;
+  z-index: 4;
 }
 
 .right {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="date">
     {{date | timestampToDetail}}
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.date{
   font-size: 12px;
   color: #bababa;
 }

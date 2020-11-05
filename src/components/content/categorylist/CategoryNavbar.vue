@@ -1,36 +1,36 @@
 <template>
-<div class="detail-navbar">
+<div class="category-navbar">
   <Navbar>
     <BackRoute slot="left"/>
-    <div class="detail-logo" slot="center">MAX- 新闻</div>
-    <Share slot="right"/>
+    <div class="category-logo" slot="center">{{categoryInfo.slice(4)}}</div>
   </Navbar>
 </div>
 </template>
 
 <script>
-import Navbar from "../../../common/navbar/Navbar"
-import BackRoute from "../../../common/backroute/BackRoute"
-import Share from "../../../common/share/Share"
+import Navbar from "../../common/navbar/Navbar"
+import BackRoute from "../../common/backroute/BackRoute"
 
 export default {
-  name: "DetailNavbar",
+  name: "CategoryNavbar",
   components: {
     Navbar,
-    BackRoute,
-    Share
+    BackRoute
+  },
+  props: {
+    categoryInfo: String,
   }
 }
 </script>
 
 <style scoped>
-.detail-navbar{
+.category-navbar {
   position: relative;
   height: 45px;
   width: 100%;
 }
 
-.detail-logo {
+.category-logo {
   height: 100%;
   width: 100%;
   color: white;

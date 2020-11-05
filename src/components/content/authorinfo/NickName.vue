@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="itemclick">
+  <div class="nickname" @click="itemclick">
     {{nickname}}
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.nickname {
   font-size: 12px;
 }
 </style>
