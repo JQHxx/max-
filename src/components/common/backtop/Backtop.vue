@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "BackTop",
+  name: "Backtop",
   methods: {
     itemclick() {
       this.$emit("itemclick")

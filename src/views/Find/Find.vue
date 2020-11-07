@@ -13,7 +13,7 @@
     <FindSwiper :RotationItems="RotationItems"/>
     <FindNews :FindNews="FindNews.list"/>
   </Scroll>
-  <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
+  <Backtop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
 </div>
 </template>
 
@@ -25,7 +25,8 @@ import NavbarSearch from "../../components/common/navbar/NavbarSeach"
 import FindSwiper from "./findcomps/FindSwiper"
 import FindNews from "./findcomps/FindNews"
 import Scroll from "../../components/common/scroll/Scroll"
-import BackTop from "../../components/common/backtop/Backtop"
+import {$_backTop} from "../../utils/mixin"
+import Backtop from "../../components/common/backtop/Backtop"
 import {getFindHeadlines, getFindNews} from "../../network/find"
 
 export default {
@@ -38,8 +39,11 @@ export default {
     FindSwiper,
     FindNews,
     Scroll,
-    BackTop
+    Backtop
   },
+  mixins: [
+    $_backTop
+  ],
   created() {
     /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */
     this.getFindHeadlines(),
@@ -49,7 +53,6 @@ export default {
     return {
       RotationItems: [],
       FindNews: {page: 0, list: []},
-      backTopState: false,
       listLengthStatus: false
     }
   },
@@ -75,10 +78,6 @@ export default {
       })
       // 异步操作等待getFindNews结束后再关闭上拉，否则一次上拉过程finish过早，会频繁上拉调用getfindnews
       this.$refs.scroll.finishPullUpHandler()
-    },
-
-    handleBackTop() {
-      this.$refs.scroll.scrollTo(0, 0, 300)
     },
 
     isShowBackTop(position) {
