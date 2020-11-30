@@ -82,7 +82,6 @@ export default {
   z-index: 999;
   background: #fff;
   height: 100%;
-  overflow: hidden;
 }
 
 .wrapper{

@@ -122,7 +122,6 @@ export default {
   }
 }
 /* 当插针只是文字的不同时，如选项卡，没有除数量以外的扩展性，使用插槽代码会冗余，一般一个遍历即可 */
-/* mounted是在模板渲染后初始化，created是在渲染前即应用实例挂载在模板之前 */
 /* 元素的绝对位置不会以风格移动而发生改变，因此左移1个单位再右移1个单位回到原点的思路是错误的 */
 /* 共性太多共享数据太多共享方法太多的组件完全可以合并成一个组件 */
 </script>
@@ -150,6 +149,7 @@ export default {
   height: 45px;
   background-color: black;
   align-items: center;
+  z-index: 4;
 }
 
 .tab-item-cover {

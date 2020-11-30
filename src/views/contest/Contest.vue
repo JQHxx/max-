@@ -10,7 +10,7 @@
             @scrollPostion="isShowBackTop">
       <ContestContent :ContestGame="ContestGame.list"/>
     </Scroll>
-    <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
+    <Backtop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
   </div>
 </template>
 
@@ -18,26 +18,25 @@
 import Navbar from "../../components/common/navbar/Navbar"
 import Scroll from "../../components/common/scroll/Scroll"
 import ContestContent from "./contestcamps/ContestContent"
-import BackTop from "../../components/common/backtop/Backtop"
+import Backtop from "../../components/common/backtop/Backtop"
 import {getContestsGame} from "../../network/contests"
+import {$_backTop} from "../../utils/mixin"
 
 export default {
   name: "Data",
   data() {
     return {
       ContestGame: {page: 0, list: []},
-      backTopState: false,
       listLengthStatus: false
     }
   },
-
   components: {
     Navbar,
     Scroll,
     ContestContent,
-    BackTop
+    Backtop
   },
-
+  mixins: [$_backTop],
   created() {
     this.getContestsGame()
   },
@@ -51,13 +50,7 @@ export default {
         this.ContestGame.page += 1})
       .catch(err=>{console.log(err)})
       this.$refs.scroll.finishPullUpHandler()
-    },
-    handleBackTop() {
-      this.$refs.scroll.scrollTo(0, 0, 300)
-    },
-    isShowBackTop(position) {
-      this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
-    },
+    }
   }
 }
 </script>

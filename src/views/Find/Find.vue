@@ -25,9 +25,9 @@ import NavbarSearch from "../../components/common/navbar/NavbarSeach"
 import FindSwiper from "./findcomps/FindSwiper"
 import FindNews from "./findcomps/FindNews"
 import Scroll from "../../components/common/scroll/Scroll"
-import {$_backTop} from "../../utils/mixin"
 import Backtop from "../../components/common/backtop/Backtop"
 import {getFindHeadlines, getFindNews} from "../../network/find"
+import {$_backTop} from "../../utils/mixin"
 
 export default {
   name: "Find",
@@ -45,7 +45,6 @@ export default {
     $_backTop
   ],
   created() {
-    /* created函数是模板渲染之前执行的函数，不要在这里写太过复杂的逻辑 */
     this.getFindHeadlines(),
     this.getFindNews()
   },
@@ -63,7 +62,9 @@ export default {
       .then(res=>{this.RotationItems=res.results.slice(0,4)})
     },
 
-    // async 包装为promise对象
+    // async解决回调地狱，await只有在接收请求结果后才执行后面的语句
+    // 当然小程序中的 const res = await func()也是可以的，只是vue中的this使用更灵活
+    // 小程序对数据的this调用比较复杂
     async getFindNews() {
       const page = this.FindNews.page+1
       // await等待语句完成
@@ -78,10 +79,6 @@ export default {
       })
       // 异步操作等待getFindNews结束后再关闭上拉，否则一次上拉过程finish过早，会频繁上拉调用getfindnews
       this.$refs.scroll.finishPullUpHandler()
-    },
-
-    isShowBackTop(position) {
-      this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
     }
   }
 }
@@ -90,7 +87,6 @@ export default {
 <style scoped>
 .wrapper {
   position: absolute;
-  overflow: hidden;
   top: 45px;
   bottom: 45px;
   right: 0px;

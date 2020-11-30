@@ -40,7 +40,7 @@ export default {
     }
   }
 }
-// updated亦可，与mounted，watched不同的是，updated只在数据变化和模板渲染完毕的同时执行操作
+// updated亦可，
   /* updated() {
     this.init()
   } */
@@ -52,7 +52,7 @@ export default {
       */
 </script>
 
-<style>
+<style scoped>
 #app {
   position: absolute;
   top: 0px;
@@ -60,4 +60,6 @@ export default {
   right: 0px;
   left: 0px;
 }
+
+@import "./assets/css/base.css"
 </style>

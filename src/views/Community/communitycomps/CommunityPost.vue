@@ -21,7 +21,7 @@
       </PostList>
       <BottomItem/>
     </Scroll>
-    <BackTop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
+    <Backtop class="backtop" @itemclick="handleBackTop" v-show="backTopState"/>
   </div>
 </template>
 
@@ -34,8 +34,9 @@ import Portrait from "../../../components/content/authorinfo/Portrait"
 import NickName from "../../../components/content/authorinfo/NickName"
 import Date from "../../../components/content/authorinfo/Date"
 import BottomItem from "../../../components/content/bottemitem/BottomItem"
-import BackTop from "../../../components/common/backtop/Backtop"
+import Backtop from "../../../components/common/backtop/Backtop"
 import {getPostList} from "../../../network/community"
+import {$_backTop} from "../../../utils/mixin"
 
 export default {
   name: "CommunityTopic",
@@ -48,8 +49,11 @@ export default {
     NickName,
     Date,
     BottomItem,
-    BackTop
+    Backtop
   },
+  mixins: [
+    $_backTop
+  ],
   data() {
     return {
       PostList: {page: 0, list:[]},
@@ -70,12 +74,6 @@ export default {
         this.PostList.page += 1})
       .catch(err=>{console.log(err)})
       this.$refs.scroll.finishPullUpHandler()
-    },
-    handleBackTop() {
-      this.$refs.scroll.scrollTo(0, 0, 300)
-    },
-    isShowBackTop(position) {
-      this.backTopState = Math.abs(position.y) > this.$store.state.screenHeight
     }
   }
 }
@@ -92,7 +90,6 @@ export default {
 
 .wrapper {
   position: absolute;
-  overflow: hidden;
   top: 0px;
   bottom: 0px;
   width: 100%;

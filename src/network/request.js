@@ -6,12 +6,14 @@ export function apiRequest(config) {
     timeout: 10000
   })
 
+  // 请求前拦截
   instance.interceptors.request.use(config => {
     return config
   }, err => {
     console.log(err);
   })
   
+  // 响应前拦截
   instance.interceptors.response.use(res => {
     return res.data
   }, err => {
