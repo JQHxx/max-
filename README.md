@@ -1,20 +1,5 @@
 # max-
 
-## Project setup
+预览图：
 
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![img](https://github.com/ahxc/max-/blob/main/data/pv.gif?raw=true)
